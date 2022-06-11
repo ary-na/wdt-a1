@@ -1,3 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using s3910902_a1;
 
-Console.WriteLine("Hello, World!");
+MostCommonBankOfAustraliaMenu.PrintMenu();
