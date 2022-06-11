@@ -4,10 +4,8 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
       <workItem from="1654252587950" duration="501000" />
       <workItem from="1654253118318" duration="75000" />
       <workItem from="1654909766169" duration="77000" />
-      <workItem from="1654909955327" duration="1738000" />
+      <workItem from="1654909955327" duration="2427000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1654221165000</created>
@@ -80,7 +78,28 @@
       <option name="project" value="LOCAL" />
       <updated>1654221612291</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update README.md">
+      <created>1654911782645</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654911782645</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added Trello Directory">
+      <created>1654911904098</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654911904098</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update .gitignore">
+      <created>1654911967110</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654911967110</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +121,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Update README.md" />
+    <MESSAGE value="Added Trello Directory" />
+    <MESSAGE value="Update .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update .gitignore" />
   </component>
 </project>
