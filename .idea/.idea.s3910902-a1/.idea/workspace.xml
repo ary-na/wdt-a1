@@ -4,9 +4,11 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update basic menu">
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Dto/TransactionDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Dto/TransactionDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Service/CustomerWebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Service/CustomerWebService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/s3910902-a1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/s3910902-a1.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +30,14 @@
       </map>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/989c1aae0872440ea43c9fc8208984e21755f0/5e/e73cb0d7/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Service/CustomerWebService.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -39,15 +49,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "azure"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="s3910902-a1" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -87,7 +102,7 @@
       <workItem from="1655351180789" duration="188000" />
       <workItem from="1655351386031" duration="48000" />
       <workItem from="1655351450213" duration="8606000" />
-      <workItem from="1655414071440" duration="8560000" />
+      <workItem from="1655414071440" duration="18170000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1654221165000</created>
@@ -159,7 +174,28 @@
       <option name="project" value="LOCAL" />
       <updated>1655416885511</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Create Dto types">
+      <created>1655423235462</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1655423235462</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Load data from Json">
+      <created>1655423281672</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1655423281672</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update .gitignore">
+      <created>1655423814146</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1655423814146</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,12 +218,14 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Added Trello Directory" />
-    <MESSAGE value="Update .gitignore" />
     <MESSAGE value="Create Model and Basic Menu" />
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Minor changes" />
     <MESSAGE value="Create basic menu" />
     <MESSAGE value="Update basic menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update basic menu" />
+    <MESSAGE value="Create Dto types" />
+    <MESSAGE value="Load data from Json" />
+    <MESSAGE value="Update .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update .gitignore" />
   </component>
 </project>
