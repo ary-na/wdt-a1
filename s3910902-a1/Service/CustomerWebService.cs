@@ -27,7 +27,6 @@ public static class CustomerWebService
         var loginDtoManager = new LoginDtoManager(connectionString);
         var accountDtoManager = new AccountDtoManager(connectionString);
         var transactionDtoManager = new TransactionDtoManager(connectionString);
-        var transactionIdCounter = 1;
 
         foreach (var customer in customerDto)
         {
@@ -37,19 +36,19 @@ public static class CustomerWebService
 
             foreach (var account in customer.Accounts)
             {
+                foreach (var transaction in account.Transactions)
+                {
+                    account.Balance += transaction.Amount;
+                }
+
                 accountDtoManager.InsertAccount(account);
-                // foreach (var transaction in account.Transactions)
-                // {
-                //     account.Balance += transaction.Amount;
-                //     transaction.TransactionId = transactionIdCounter;
-                //     transactionIdCounter++;
-                //     transaction.TransactionType = "D";
-                //     transaction.AccountNumber = account.AccountNumber;
-                //
-                //     transactionDtoManager.InsertTransaction(transaction);
-                // }
+
+                foreach (var transaction in account.Transactions)
+                {
+                    transaction.AccountNumber = account.AccountNumber;
+                    transactionDtoManager.InsertTransaction(transaction);
+                }
             }
         }
     }
-    public static object GetObjectOrDbNull(this object value) => value ?? DBNull.Value;
 }

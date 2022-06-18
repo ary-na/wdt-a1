@@ -19,17 +19,19 @@ public class TransactionDtoManager
         connection.Open();
 
         using var command = connection.CreateCommand();
-        command.CommandText =
-            @"insert into Transaction (TransactionID, TransactionType, AccountNumber, Amount, Comment, TransactionTimeUtc)
-            values (@transactionId, @transactionType, @accountNumber, @amount, @comment, @transactionTimeUtc)";
+        // Code sourced and adapted from:
+        // https://social.msdn.microsoft.com/Forums/en-US/9f65826b-7d4d-4877-9630-3008bbb80157/need-help-systemdatasqlclientsqlexception-incorrect-syntax-near-the-keyword-read?forum=adodotnetdataproviders
+        command.CommandText = 
+            @"insert into [Transaction] (TransactionType, AccountNumber, Amount, Comment, TransactionTimeUtc)
+            values (@transactionType, @accountNumber, @amount, @comment, @transactionTimeUtc)";
         
-        command.Parameters.AddWithValue("transactionId", transactionDto.TransactionId);
-        command.Parameters.AddWithValue("transactionType", transactionDto.TransactionType);
-        command.Parameters.AddWithValue("accountNumber", transactionDto.AccountNumber);
-        command.Parameters.AddWithValue("amount", transactionDto.Amount);
-        command.Parameters.AddWithValue("comment", transactionDto.Comment);
+        command.Parameters.AddWithValue("transactionType", GetObjectOrDbNull(transactionDto.TransactionType));
+        command.Parameters.AddWithValue("accountNumber", GetObjectOrDbNull(transactionDto.AccountNumber));
+        command.Parameters.AddWithValue("amount", GetObjectOrDbNull(transactionDto.Amount));
+        command.Parameters.AddWithValue("comment", GetObjectOrDbNull(transactionDto.Comment));
         command.Parameters.AddWithValue("transactionTimeUtc", transactionDto.TransactionTimeUtc);
 
         command.ExecuteNonQuery();
     }
+    private object GetObjectOrDbNull(object value) => value ?? DBNull.Value;
 }

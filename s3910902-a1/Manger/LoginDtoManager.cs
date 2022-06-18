@@ -19,7 +19,7 @@ public class LoginDtoManager
 
         using var command = connection.CreateCommand();
         command.CommandText =
-            @"insert into Login (LoginID, CustomerID, PasswordHash)
+            @"insert into [Login] (LoginID, CustomerID, PasswordHash)
             values (@loginId, @customerId, @passwordHash)";
         
         command.Parameters.AddWithValue("loginId", loginDto.LoginId);

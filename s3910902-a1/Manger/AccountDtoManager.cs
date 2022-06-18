@@ -19,7 +19,7 @@ public class AccountDtoManager
 
         using var command = connection.CreateCommand();
         command.CommandText =
-            @"insert into Account (AccountNumber, AccountType, CustomerID, Balance)
+            @"insert into [Account] (AccountNumber, AccountType, CustomerID, Balance)
             values (@accountNumber, @accountType, @customerId, @balance)";
         
         command.Parameters.AddWithValue("accountNumber", accountDto.AccountNumber);

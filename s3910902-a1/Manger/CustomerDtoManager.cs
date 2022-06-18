@@ -19,7 +19,7 @@ public class CustomerDtoManager
 
         using var command = connection.CreateCommand();
         command.CommandText =
-            @"insert into Customer (CustomerID, Name, Address, City, PostCode)
+            @"insert into [Customer] (CustomerID, Name, Address, City, PostCode)
             values (@customerId, @name, @address, @city, @postCode)";
         
         command.Parameters.AddWithValue("customerId", GetObjectOrDbNull(customerDto.CustomerId));
