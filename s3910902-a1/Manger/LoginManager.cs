@@ -3,11 +3,11 @@ using s3910902_a1.Dto;
 
 namespace s3910902_a1.Manger;
 
-public class LoginDtoManager
+public class LoginManager
 {
     private readonly string _connectionString;
 
-    public LoginDtoManager(string connectionString)
+    public LoginManager(string connectionString)
     {
         _connectionString = connectionString;
     }

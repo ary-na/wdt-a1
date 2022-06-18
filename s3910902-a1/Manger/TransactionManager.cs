@@ -4,11 +4,11 @@ using s3910902_a1.Dto;
 
 namespace s3910902_a1.Manger;
 
-public class TransactionDtoManager
+public class TransactionManager
 {
     private readonly string _connectionString;
 
-    public TransactionDtoManager(string connectionString)
+    public TransactionManager(string connectionString)
     {
         _connectionString = connectionString;
     }

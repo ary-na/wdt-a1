@@ -1,4 +1,3 @@
-using System.Transactions;
 using Newtonsoft.Json;
 using s3910902_a1.Dto;
 using s3910902_a1.Manger;
@@ -23,16 +22,22 @@ public static class CustomerWebService
             DateFormatString = "dd/MM/yyyy hh:mm:ss tt"
         });
 
-        var customerDtoManager = new CustomerDtoManager(connectionString);
-        var loginDtoManager = new LoginDtoManager(connectionString);
-        var accountDtoManager = new AccountDtoManager(connectionString);
-        var transactionDtoManager = new TransactionDtoManager(connectionString);
+        var customerManager = new CustomerManager(connectionString);
+        var loginManager = new LoginManager(connectionString);
+        var accountManager = new AccountManager(connectionString);
+        var transactionManager = new TransactionManager(connectionString);
+        
+        InsertCustomerDto(customerDto, customerManager, loginManager, accountManager, transactionManager);
+    }
 
+    private static void InsertCustomerDto(List<CustomerDto>? customerDto, CustomerManager customerManager,
+        LoginManager loginManager, AccountManager accountManager, TransactionManager transactionManager)
+    {
         foreach (var customer in customerDto)
         {
-            customerDtoManager.InsertCustomer(customer);
+            customerManager.InsertCustomer(customer);
             customer.Login.CustomerId = customer.CustomerId;
-            loginDtoManager.InsertLogin(customer.Login);
+            loginManager.InsertLogin(customer.Login);
 
             foreach (var account in customer.Accounts)
             {
@@ -41,12 +46,12 @@ public static class CustomerWebService
                     account.Balance += transaction.Amount;
                 }
 
-                accountDtoManager.InsertAccount(account);
+                accountManager.InsertAccount(account);
 
                 foreach (var transaction in account.Transactions)
                 {
                     transaction.AccountNumber = account.AccountNumber;
-                    transactionDtoManager.InsertTransaction(transaction);
+                    transactionManager.InsertTransaction(transaction);
                 }
             }
         }
