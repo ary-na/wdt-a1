@@ -4,14 +4,7 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Fixed the issue where inserting transactions into the database generated unhandled SQLException">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/AccountDtoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Manger/AccountManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/CustomerDtoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Manger/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/LoginDtoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Manger/LoginManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/TransactionDtoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Manger/TransactionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Service/CustomerWebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Service/CustomerWebService.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Minor fixes and code clean up" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +93,7 @@
       <workItem from="1655351386031" duration="48000" />
       <workItem from="1655351450213" duration="8606000" />
       <workItem from="1655414071440" duration="18886000" />
-      <workItem from="1655521620707" duration="8455000" />
+      <workItem from="1655521620707" duration="8833000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1654221165000</created>
@@ -214,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655528359980</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Minor fixes and code clean up">
+      <created>1655530246868</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1655530246868</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +248,7 @@
     <MESSAGE value="Create Managers for DTOs" />
     <MESSAGE value="Insert loaded data into database" />
     <MESSAGE value="Fixed the issue where inserting transactions into the database generated unhandled SQLException" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the issue where inserting transactions into the database generated unhandled SQLException" />
+    <MESSAGE value="Minor fixes and code clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes and code clean up" />
   </component>
 </project>
