@@ -4,14 +4,7 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Fixed the issue where inserting transactions into the database generated unhandled SQLException">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/AccountDtoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Manger/AccountManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/CustomerDtoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Manger/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/LoginDtoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Manger/LoginManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/TransactionDtoManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Manger/TransactionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Service/CustomerWebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Service/CustomerWebService.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="essential-feature-load-data" />
       </map>
     </option>
   </component>
