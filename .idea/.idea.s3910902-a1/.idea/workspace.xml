@@ -4,30 +4,7 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Dto/AccountDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/DTOs/AccountDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Dto/CustomerDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/DTOs/CustomerDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Dto/LoginDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/DTOs/LoginDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Dto/TransactionDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/DTOs/TransactionDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/AccountManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Manger/TransactionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Model/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/Account.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Model/AccountType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/AccountType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Model/CheckingAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/CheckingAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Model/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/Customer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Model/IAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Model/ITransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/ITransaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Model/SavingAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/SavingAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Model/Transaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/Transaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Model/TransactionType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/TransactionType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/MostCommonBankOfAustraliaMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Service/CustomerWebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/s3910902-a1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/s3910902-a1.csproj" afterDir="false" />
-    </list>
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Create login menu and login verification" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
