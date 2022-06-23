@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 using s3910902_a1.Dto;
 using s3910902_a1.Manger;
 
-namespace s3910902_a1.Service;
+namespace s3910902_a1.Services;
 
 // Code sourced and adapted from:
 // Week 3 Tutorial - PersonWebService.cs
