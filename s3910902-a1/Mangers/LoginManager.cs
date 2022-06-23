@@ -6,6 +6,10 @@ using SimpleHashing;
 
 namespace s3910902_a1.Manger;
 
+// Code sourced and adapted from:
+// Week 3 Tutorial - PersonManager.cs
+// https://rmit.instructure.com/courses/102750/files/24402824?wrap=1
+
 public class LoginManager
 {
     private readonly string _connectionString;
