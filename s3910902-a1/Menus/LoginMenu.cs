@@ -1,8 +1,7 @@
 using System.Text;
-using s3910902_a1.Manger;
-using SimpleHashing;
+using s3910902_a1.Mangers;
 
-namespace s3910902_a1;
+namespace s3910902_a1.Menus;
 
 // Code sourced and adapted from:
 // https://docs.microsoft.com/en-us/dotnet/standard/base-types/stringbuilder
@@ -13,7 +12,7 @@ namespace s3910902_a1;
 // https://stackoverflow.com/questions/20409026/how-to-remove-char-from-console-window-command-console-write-b-didnt
 // https://docs.microsoft.com/en-us/dotnet/api/system.console.readkey?view=net-6.0
 
-public static class Login
+public static class LoginMenu
 {
     private static string? _loginId;
     private static string? _passwordHash;
@@ -47,12 +46,5 @@ public static class Login
         var loggedIn = loginManager.VerifyLogin(_loginId, Password.ToString());
         Console.WriteLine();
         Console.WriteLine(loggedIn);
-        Console.WriteLine(Password.ToString());
-    }
-
-    private static bool IsValid(LoginManager loginManager, string? loginId, string passwordHash)
-    {
-        
-        return false;
     }
 }

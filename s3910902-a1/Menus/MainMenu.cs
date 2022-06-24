@@ -1,6 +1,6 @@
-namespace s3910902_a1;
+namespace s3910902_a1.Menus;
 
-public static class Menu
+public static class MainMenu
 {
     // Code sourced and adapted from:
     // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#code-try-0

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
-using s3910902_a1;
+using s3910902_a1.Mangers;
+using s3910902_a1.Menus;
 using s3910902_a1.Services;
 
 // Code sourced and adapted from:
@@ -11,7 +12,10 @@ var connectionString = configuration.GetConnectionString(nameof(CustomerWebServi
 
 //CustomerWebService.GetAndSaveCustomer(connectionString);
 
-Login.Run(connectionString);
+//LoginMenu.Run(connectionString);
+
+var loginManger = new LoginManager(connectionString);
+Console.WriteLine(loginManger.Login.PasswordHash);
 
 // Most Common Bank of Australia console application
-//Menu.Run();
+//MainMenu.Run();
