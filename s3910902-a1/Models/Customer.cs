@@ -1,15 +1,13 @@
-namespace s3910902_a1.Model;
+namespace s3910902_a1.Models;
 
 public class Customer
 {
-    public Customer()
-    {
-        
-    }
+    public int CustomerId { get; set; }
+    public string? Name { get; set; }
+    public string? Address { get; set; }
+    public string? City { get; set; }
+    public string? PostCode { get; set; }
+    public IAccount[]? Accounts { get; set; }
     
-    public int CustomerId { get; }
-    public string Name { get; }
-    public string Address { get; }
-    public string City { get; }
-    public int PostCode { get; set; }
+    public Login? Login { get; set; }
 }

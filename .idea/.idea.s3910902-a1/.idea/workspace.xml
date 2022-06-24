@@ -4,14 +4,11 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Login.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" afterDir="false" />
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update Login system">
+      <change afterPath="$PROJECT_DIR$/s3910902-a1/Models/AbstractTransaction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/AbstractAccount.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/AccountType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/AccountType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/CheckingAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/CheckingAccount.cs" afterDir="false" />
@@ -19,9 +16,8 @@
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/ITransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/ITransaction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/SavingAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/SavingAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/Transaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/AbstractTransaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/Transaction.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/TransactionType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/TransactionType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +41,21 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/989c1aae0872440ea43c9fc8208984e21755f0/5e/e73cb0d7/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Mangers/AccountManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Mangers/AccountManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Mangers/CustomerManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Mangers/TransactionManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/AccountType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/AccountType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/CheckingAccount.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/CheckingAccount.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/Customer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/Customer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/IAccount.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/ITransaction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/SavingAccount.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/TransactionType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Services/CustomerWebService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -113,7 +124,7 @@
       <workItem from="1655414071440" duration="18886000" />
       <workItem from="1655521620707" duration="8455000" />
       <workItem from="1656018871629" duration="1014000" />
-      <workItem from="1656020127885" duration="14898000" />
+      <workItem from="1656020127885" duration="15235000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1654221165000</created>
@@ -255,7 +266,28 @@
       <option name="project" value="LOCAL" />
       <updated>1655958938716</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Update Trello">
+      <created>1656042690979</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1656042690979</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Update model, added Deposit, Withdraw, Transfer and Service classes">
+      <created>1656042740913</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1656042740913</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Update Login system">
+      <created>1656042897496</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1656042897496</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,8 +322,10 @@
     <MESSAGE value="Insert loaded data into database" />
     <MESSAGE value="Fixed the issue where inserting transactions into the database generated unhandled SQLException" />
     <MESSAGE value="Code clean up" />
-    <MESSAGE value="Update Trello" />
     <MESSAGE value="Update comments and code clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update comments and code clean up" />
+    <MESSAGE value="Update Trello" />
+    <MESSAGE value="Update model, added Deposit, Withdraw, Transfer and Service classes" />
+    <MESSAGE value="Update Login system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Login system" />
   </component>
 </project>

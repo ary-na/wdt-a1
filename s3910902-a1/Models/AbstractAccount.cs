@@ -1,13 +1,13 @@
-namespace s3910902_a1.Model;
+namespace s3910902_a1.Models;
 
 public abstract class AbstractAccount : IAccount
 {
     public int AccountNo { get; set; }
-    public AccountType AccountType { get; set; }
-    public int OwnerCustomerId { get; set; }
+    public char AccountType { get; set; }
+    
+    public List<ITransaction>? Transactions { get; set; }
     public decimal Balance { get; set; }
-    
-    
+
     public void Credit()
     {
         throw new NotImplementedException();
