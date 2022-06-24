@@ -1,12 +1,13 @@
 using Newtonsoft.Json;
 using s3910902_a1.Dto;
-using s3910902_a1.Manger;
+using s3910902_a1.Mangers;
 
-namespace s3910902_a1.Service;
+namespace s3910902_a1.Services;
 
 // Code sourced and adapted from:
 // Week 3 Tutorial - PersonWebService.cs
 // https://rmit.instructure.com/courses/102750/files/24402824?wrap=1
+
 public static class CustomerWebService
 {
     public static void GetAndSaveCustomer(string connectionString)
