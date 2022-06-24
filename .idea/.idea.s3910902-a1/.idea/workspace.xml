@@ -4,22 +4,7 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update Login system">
-      <change afterPath="$PROJECT_DIR$/s3910902-a1/Models/AbstractTransaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/AbstractAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/AccountType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/AccountType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/CheckingAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/CheckingAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/Customer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/ITransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/ITransaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/SavingAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/SavingAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/Transaction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/TransactionType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/TransactionType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update Login system" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

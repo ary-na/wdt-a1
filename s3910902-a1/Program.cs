@@ -15,7 +15,7 @@ var connectionString = configuration.GetConnectionString(nameof(CustomerWebServi
 //LoginMenu.Run(connectionString);
 
 var loginManger = new LoginManager(connectionString);
-Console.WriteLine(loginManger.Login.PasswordHash);
+Console.WriteLine(loginManger.Login.CustomerId);
 
 // Most Common Bank of Australia console application
 //MainMenu.Run();
