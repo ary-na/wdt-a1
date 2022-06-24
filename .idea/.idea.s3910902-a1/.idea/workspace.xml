@@ -4,7 +4,7 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update Login system" />
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Minor changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +40,7 @@
     <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/ITransaction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/SavingAccount.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/TransactionType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Services/CustomerWebService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -272,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656042897496</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Minor changes">
+      <created>1656043444757</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1656043444757</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +305,6 @@
     <MESSAGE value="Added Trello Directory" />
     <MESSAGE value="Create Model and Basic Menu" />
     <MESSAGE value="Update README.md" />
-    <MESSAGE value="Minor changes" />
     <MESSAGE value="Create basic menu" />
     <MESSAGE value="Update basic menu" />
     <MESSAGE value="Create Dto types" />
@@ -311,6 +318,7 @@
     <MESSAGE value="Update Trello" />
     <MESSAGE value="Update model, added Deposit, Withdraw, Transfer and Service classes" />
     <MESSAGE value="Update Login system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Login system" />
+    <MESSAGE value="Minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
   </component>
 </project>
