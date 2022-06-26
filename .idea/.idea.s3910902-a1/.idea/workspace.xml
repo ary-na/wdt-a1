@@ -4,7 +4,7 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Create Account factory" />
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update workspace.xml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +102,7 @@
       <workItem from="1655521620707" duration="8455000" />
       <workItem from="1656018871629" duration="1014000" />
       <workItem from="1656020127885" duration="15235000" />
-      <workItem from="1656228030889" duration="18835000" />
+      <workItem from="1656228030889" duration="19313000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1654221165000</created>
@@ -286,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656286497258</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Update workspace.xml">
+      <created>1656286593874</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1656286593874</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +334,7 @@
     <MESSAGE value="Minor changes" />
     <MESSAGE value="Fixed the issue where VerifyLogin() ran only once inside loop" />
     <MESSAGE value="Create Account factory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Account factory" />
+    <MESSAGE value="Update workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml" />
   </component>
 </project>
