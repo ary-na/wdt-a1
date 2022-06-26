@@ -2,6 +2,7 @@ namespace s3910902_a1.Models;
 
 public abstract class AbstractAccount : IAccount
 {
+    public int CustomerId { get; set; }
     public int AccountNo { get; set; }
     public char AccountType { get; set; }
     

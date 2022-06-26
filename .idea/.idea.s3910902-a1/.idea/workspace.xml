@@ -4,7 +4,16 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Minor changes" />
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Minor changes">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/AbstractAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/AbstractAccount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,28 +29,18 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="essential-feature-load-data" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/989c1aae0872440ea43c9fc8208984e21755f0/5e/e73cb0d7/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Mangers/AccountManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Mangers/AccountManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Mangers/CustomerManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Mangers/TransactionManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/AccountType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/AccountType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/CheckingAccount.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/CheckingAccount.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/Customer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/Customer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/IAccount.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/ITransaction.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/SavingAccount.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/TransactionType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Services/CustomerWebService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/989c1aae0872440ea43c9fc8208984e21755f0/52/52d25937/SqlDataAdapter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d4c3b318aec54a3c8383ce9bcd4c5ca32dde00/18/e07c3687/DataRowExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d4c3b318aec54a3c8383ce9bcd4c5ca32dde00/51/d275ada7/DataSetUtil.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d4c3b318aec54a3c8383ce9bcd4c5ca32dde00/85/8dac00e0/DataTable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/31b2bf277647f5ace76f469d8b86d629a4f3f4733c165a35d236762145cc5/StringBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8dc79a2b85523c91ac7d6b384b806b4282481fb086daae78402ed1f2c7bc92/Console.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a189637ee62ade5a353f967e8f9214fb749ea16c9375dc6d2b6df37388f81/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,20 +53,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;azure&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "azure"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="s3910902-a1" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -111,6 +110,7 @@
       <workItem from="1655521620707" duration="8455000" />
       <workItem from="1656018871629" duration="1014000" />
       <workItem from="1656020127885" duration="15235000" />
+      <workItem from="1656228030889" duration="18480000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1654221165000</created>

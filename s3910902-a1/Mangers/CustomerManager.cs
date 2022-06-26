@@ -13,23 +13,24 @@ namespace s3910902_a1.Mangers;
 public class CustomerManager
 {
     private readonly string _connectionString;
-
     private readonly LoginManager _loginManager;
-    public Customer Customer { get; }
+    public Customer? Customer { get; private set; }
 
     public CustomerManager(string connectionString)
     {
         _connectionString = connectionString;
-        _loginManager = new LoginManager(connectionString);
-        // Code sourced and adapted from:
-        // https://www.jetbrains.com/help/resharper/InvertIf.html
-        //var loginManger = new LoginManager(_connectionString);
-        //if (!loginManger.ValidLogin) return;
+    }
+
+    // Code sourced and adapted from:
+    // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-constructors
+    public CustomerManager(string connectionString, LoginManager loginManager) : this(connectionString)
+    {
+        _loginManager = loginManager;
 
         using var connection = new SqlConnection(_connectionString);
         using var command = connection.CreateCommand();
         command.CommandText = "select * from [Customer] where CustomerID = @customerId";
-        command.Parameters.AddWithValue("customerId", _loginManager.Login.CustomerId);
+        command.Parameters.AddWithValue("customerId", _loginManager.Login?.CustomerId);
 
         var accountManager = new AccountManager(_connectionString);
 
@@ -40,9 +41,9 @@ public class CustomerManager
             Address = x.Field<string?>("Address"),
             City = x.Field<string?>("City"),
             PostCode = x.Field<string?>("PostCode"),
-            //Accounts = accountManager.GetAccounts(x.Field<int>("CustomerID")),
-            //Login = _loginManager.Login
-        }).First();
+            Accounts = accountManager.GetAccounts(x.Field<int>("CustomerID")),
+            Login = _loginManager.Login
+        }).Single();
     }
 
     public void InsertCustomer(CustomerDto customerDto)

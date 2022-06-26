@@ -14,40 +14,11 @@ namespace s3910902_a1.Mangers;
 public class LoginManager
 {
     private readonly string _connectionString;
-    public Login Login { get; private set; }
-    public bool ValidLogin { get; private set; }
+    public Login? Login { get; private set; }
 
     public LoginManager(string connectionString)
     {
         _connectionString = connectionString;
-        
-        
-        using var connection = new SqlConnection(_connectionString);
-        connection.Open();
-
-        using var command = connection.CreateCommand();
-        command.CommandText =
-            "select * from [Login] where LoginID = @loginId";
-
-        command.Parameters.AddWithValue("loginId", 12345678);
-
-        Login = command.GetDataTable().Select().Select(x => new Login
-        {
-            LoginId = x.Field<string>("LoginID"),
-            CustomerId = x.Field<int>("CustomerID"),
-            PasswordHash = x.Field<string>("PasswordHash")
-        }).First();
-        
-        // using var connection = new SqlConnection(_connectionString);
-        // using var command = connection.CreateCommand();
-        // command.CommandText = "select * from [Login] where LoginID = @loginId and PasswordHash = @passwordHash";
-    }
-
-    // Code sourced and adapted from:
-    // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-constructors
-    public LoginManager(string connectionString, string? loginId, string password) : this(connectionString)
-    {
-        
     }
 
     public bool VerifyLogin(string? loginId, string password)
@@ -61,6 +32,13 @@ public class LoginManager
 
         command.Parameters.AddWithValue("loginId", loginId);
 
+        // Code sourced and adapted from:
+        // https://docs.microsoft.com/en-us/dotnet/csharp/linq/handle-null-values-in-query-expressions
+        // https://www.jetbrains.com/help/resharper/InvertIf.html
+        // https://stackoverflow.com/questions/40415020/datatable-nullreferenceexception
+        
+        if (command.GetDataTable().Rows.Count is 0) return false;
+
         Login = command.GetDataTable().Select().Select(x => new Login
         {
             LoginId = x.Field<string>("LoginID"),
@@ -71,9 +49,8 @@ public class LoginManager
         // Code sourced and adapted from:
         // https://stackoverflow.com/questions/55005406/one-line-if-else-in-c-sharp
         // https://stackoverflow.com/questions/14621907/simplify-conditional-ternary-expression
-        
+
         var passwordHash = PBKDF2.Verify(Login.PasswordHash, password);
-        ValidLogin = passwordHash;
         return Login.PasswordHash != null && passwordHash;
     }
 

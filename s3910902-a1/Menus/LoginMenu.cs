@@ -14,37 +14,60 @@ namespace s3910902_a1.Menus;
 
 public static class LoginMenu
 {
-    private static string? _loginId;
-    private static string? _passwordHash;
-    private static readonly StringBuilder Password = new();
     public static void Run(string connectionString)
     {
-        Console.Write("Enter Login ID: ");
-        _loginId = Console.ReadLine();
-
-        Console.Write("Enter Password: ");
-        ConsoleKeyInfo readPassword;
-        
+        var loginManager = new LoginManager(connectionString);
+        bool isValid;
         do
         {
-            readPassword = Console.ReadKey(true);
-            Password.Append(readPassword.KeyChar);
+            Console.Write("Enter Login ID: ");
+            var loginId = Console.ReadLine();
 
-            if (readPassword.Key == ConsoleKey.Backspace && Password.Length > 1)
+            Console.Write("Enter Password: ");
+            var password = ReadPassword();
+
+            isValid = loginManager.VerifyLogin(loginId?.Trim(), password.Trim());
+
+            Console.WriteLine();
+
+            if (!isValid)
+                Console.WriteLine("Invalid Login ID and/or Password, try again.");
+        } while (!isValid);
+
+        var customerManager = new CustomerManager(connectionString, loginManager);
+
+        foreach (var x in customerManager.Customer.Accounts)
+        {
+            Console.WriteLine(x.Balance);
+        }
+
+        if (isValid)
+            MainMenu.Run();
+    }
+
+    private static string ReadPassword()
+    {
+        StringBuilder password = new();
+        ConsoleKeyInfo readPassword = new();
+        while (readPassword.Key != ConsoleKey.Enter)
+        {
+            readPassword = Console.ReadKey(true);
+            password.Append(readPassword.KeyChar);
+
+            // Remove password character on backspace
+            if (readPassword.Key is ConsoleKey.Backspace && password.Length > 1)
             {
                 Console.Write("\b \b");
-                Password.Remove(Password.Length - 1, 1);
-                Password.Length--;
+                password.Remove(password.Length - 1, 1);
+                password.Length--;
             }
-            else if(readPassword.Key != ConsoleKey.Enter)
+            else
                 Console.Write("*");
+        }
 
-        } while (readPassword.Key != ConsoleKey.Enter);
-        Password.Length--;
-
-        var loginManager = new LoginManager(connectionString);
-        var loggedIn = loginManager.VerifyLogin(_loginId, Password.ToString());
-        Console.WriteLine();
-        Console.WriteLine(loggedIn);
+        // Remove enter character
+        Console.WriteLine("\b \b");
+        password.Length--;
+        return password.ToString();
     }
 }

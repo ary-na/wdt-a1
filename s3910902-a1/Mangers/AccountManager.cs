@@ -1,6 +1,7 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using s3910902_a1.Dto;
+using s3910902_a1.Factories;
 using s3910902_a1.Models;
 using s3910902_a1.Utilities;
 
@@ -23,36 +24,41 @@ public class AccountManager
     {
         using var connection = new SqlConnection(_connectionString);
         using var command = connection.CreateCommand();
-        command.CommandText = "select * from Account where CustomerID = @customerId";
+        command.CommandText = "select * from [Account] where CustomerID = @customerId";
         command.Parameters.AddWithValue("customerId", customerId);
 
         var transactionManager = new TransactionManager(_connectionString);
 
-        var savingAccount = command.GetDataTable().Select()
-            .Where(x => x.Field<char>("AccountType") == 'S')
-            .Select(x => new SavingAccount
+        var dataTable = command.GetDataTable();
+
+        var accounts = command.GetDataTable().Select()
+            .Where(x => x.Field<string>("AccountType") is "S" && x.Field<string>("AccountType") != "")
+            .Select(x => new SavingAccount()
             {
                 AccountNo = x.Field<int>("AccountNumber"),
-                AccountType = x.Field<char>("AccountType"),
+                AccountType = 'S',
+                CustomerId = customerId,
                 Balance = x.Field<decimal>("Balance"),
-                Transactions = transactionManager.GetTransactions(x.Field<int>("AccountNumber"))
-            }).First();
+                //Transactions = transactionManager.GetTransactions(x.Field<int>("AccountNumber"))
+            }).ToArray();
 
-        var checkingAccount = command.GetDataTable().Select()
-            .Where(x => x.Field<char>("AccountType") == 'C')
-            .Select(x => new SavingAccount
-            {
-                AccountNo = x.Field<int>("AccountNumber"),
-                AccountType = x.Field<char>("AccountType"),
-                Balance = x.Field<decimal>("Balance"),
-                Transactions = transactionManager.GetTransactions(x.Field<int>("AccountNumber"))
-            }).First();
-
-        return new IAccount[]
-        {
-            savingAccount,
-            checkingAccount
-        };
+        // var checkingAccount = command.GetDataTable().Select()
+        //     .Where(x => x.Field<string>("AccountType") is "C" && x.Field<string>("AccountType") != "")
+        //     .Select(x => new CheckingAccount()
+        //     {
+        //         AccountNo = x.Field<int>("AccountNumber"),
+        //         AccountType = 'C',
+        //         CustomerId = customerId,
+        //         Balance = x.Field<decimal>("Balance"),
+        //         //Transactions = transactionManager.GetTransactions(x.Field<int>("AccountNumber"))
+        //     }).Single();
+        //
+        // return new IAccount[]
+        // {
+        //     savingAccount,
+        //     checkingAccount
+        // };
+        return null;
     }
 
     public void InsertAccount(AccountDto accountDto)

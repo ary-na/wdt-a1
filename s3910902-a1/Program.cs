@@ -12,10 +12,7 @@ var connectionString = configuration.GetConnectionString(nameof(CustomerWebServi
 
 //CustomerWebService.GetAndSaveCustomer(connectionString);
 
-//LoginMenu.Run(connectionString);
-
-var loginManger = new LoginManager(connectionString);
-Console.WriteLine(loginManger.Login.CustomerId);
+LoginMenu.Run(connectionString);
 
 // Most Common Bank of Australia console application
 //MainMenu.Run();
