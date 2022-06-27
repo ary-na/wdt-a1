@@ -15,10 +15,17 @@ public class LoginManager
 {
     private readonly string _connectionString;
     public Login? Login { get; private set; }
+    public List<int> Logins { get; }
 
     public LoginManager(string connectionString)
     {
         _connectionString = connectionString;
+        using var connection = new SqlConnection(_connectionString);
+        connection.Open();
+
+        using var command = connection.CreateCommand();
+        command.CommandText = "select CustomerID from [Login]";
+        Logins = command.GetDataTable().Select().Select(x => x.Field<int>("CustomerID")).ToList();
     }
 
     public bool VerifyLogin(string? loginId, string password)

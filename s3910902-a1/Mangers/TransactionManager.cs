@@ -47,12 +47,17 @@ public class TransactionManager
         command.Parameters.AddWithValue("transactionType", transactionDto.TransactionType);
         command.Parameters.AddWithValue("accountNumber", transactionDto.AccountNumber);
         command.Parameters.AddWithValue("amount", transactionDto.Amount);
-        command.Parameters.AddWithValue("comment", transactionDto.Comment?.GetObjectOrDbNull());
+        command.Parameters.AddWithValue("comment", transactionDto.Comment.GetObjectOrDbNull());
         command.Parameters.AddWithValue("transactionTimeUtc", transactionDto.TransactionTimeUtc);
 
         command.ExecuteNonQuery();
     }
 
+    // Code sourced and adapted from:
+    // Week 3 Lectorial - SwitchExpressions.cs
+    // Week 3 Lectorial - Factory.cs
+    // https://rmit.instructure.com/courses/102750/files/24463725?wrap=1
+    
     private static ITransaction CreateTransactions(DataRow dataRow)
     {
         return dataRow.Field<string>("TransactionType") switch

@@ -12,6 +12,14 @@ public static class CustomerWebService
 {
     public static void GetAndSaveCustomer(string connectionString)
     {
+        var customerManager = new CustomerManager(connectionString);
+        var loginManager = new LoginManager(connectionString);
+        var accountManager = new AccountManager(connectionString);
+        var transactionManager = new TransactionManager(connectionString);
+
+        // Login details exist in database condition
+        if (loginManager.Logins.Any()) return;
+
         const string url = "https://coreteaching01.csit.rmit.edu.au/~e103884/wdt/services/customers/";
         using var client = new HttpClient();
         var json = client.GetStringAsync(url).Result;
@@ -23,11 +31,6 @@ public static class CustomerWebService
             DateFormatString = "dd/MM/yyyy hh:mm:ss tt"
         });
 
-        var customerManager = new CustomerManager(connectionString);
-        var loginManager = new LoginManager(connectionString);
-        var accountManager = new AccountManager(connectionString);
-        var transactionManager = new TransactionManager(connectionString);
-        
         InsertCustomerDto(customerDto, customerManager, loginManager, accountManager, transactionManager);
     }
 

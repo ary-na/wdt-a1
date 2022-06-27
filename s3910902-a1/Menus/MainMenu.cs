@@ -19,7 +19,6 @@ public static class MainMenu
         var exit = false;
         do
         {
-            Console.WriteLine(_customerManager.Customer?.Name);
             PrintMenu();
             switch (ReadInput())
             {
@@ -37,6 +36,7 @@ public static class MainMenu
                     break;
                 case '5':
                     Logout();
+                    exit = true;
                     break;
                 case '6':
                     Exit();
@@ -44,6 +44,7 @@ public static class MainMenu
                     break;
                 default:
                     Console.WriteLine("Please select a valid menu option.");
+                    Console.WriteLine();
                     break;
             }
         } while (!exit);
@@ -56,16 +57,20 @@ public static class MainMenu
     // Print menu
     private static void PrintMenu()
     {
-        var separator = new string('-', 40);
+        var separator = new string('-', 29);
         Console.WriteLine(separator);
         Console.WriteLine("Most Common Bank of Australia");
-        Console.WriteLine("Please select a number from the menu:");
+        Console.WriteLine(separator);
+        Console.WriteLine();
+        Console.WriteLine($"--- {_customerManager?.Customer?.Name} ---");
+        Console.WriteLine();
         Console.WriteLine("[1] Deposit");
         Console.WriteLine("[2] Withdraw");
         Console.WriteLine("[3] Transfer");
         Console.WriteLine("[4] My Statement");
         Console.WriteLine("[5] Logout");
         Console.WriteLine("[6] Exit");
+        Console.WriteLine();
         Console.Write("Enter an option: ");
     }
 
@@ -89,6 +94,9 @@ public static class MainMenu
     private static void Withdraw() => Console.WriteLine("Withdraw");
     private static void Transfer() => Console.WriteLine("Transfer");
     private static void MyStatement() => Console.WriteLine("MyStatement");
+    
+    // Code sourced and adapted from:
+    // https://docs.microsoft.com/en-us/dotnet/api/system.console.clear?view=net-6.0
     private static void Logout()
     {
         Console.Clear();

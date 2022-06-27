@@ -49,9 +49,9 @@ public class CustomerManager
         // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/how-to-implement-and-call-a-custom-extension-method 
         command.Parameters.AddWithValue("customerId", customerDto.CustomerId);
         command.Parameters.AddWithValue("name", customerDto.Name);
-        command.Parameters.AddWithValue("address", customerDto.Address?.GetObjectOrDbNull());
-        command.Parameters.AddWithValue("city", customerDto.City?.GetObjectOrDbNull());
-        command.Parameters.AddWithValue("postCode", customerDto.PostCode?.GetObjectOrDbNull());
+        command.Parameters.AddWithValue("address", customerDto.Address.GetObjectOrDbNull());
+        command.Parameters.AddWithValue("city", customerDto.City.GetObjectOrDbNull());
+        command.Parameters.AddWithValue("postCode", customerDto.PostCode.GetObjectOrDbNull());
 
         command.ExecuteNonQuery();
     }
