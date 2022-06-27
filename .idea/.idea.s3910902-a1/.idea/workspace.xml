@@ -4,16 +4,7 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/ModelManger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/ModelManger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Minor changes and fixes -- Update logout and CustomerWebService.cs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +26,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/989c1aae0872440ea43c9fc8208984e21755f0/5e/e73cb0d7/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Mangers/CustomerManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -106,7 +98,7 @@
       <workItem from="1656020127885" duration="15235000" />
       <workItem from="1656228030889" duration="19313000" />
       <workItem from="1656312445643" duration="438000" />
-      <workItem from="1656365061473" duration="5018000" />
+      <workItem from="1656365061473" duration="5349000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1654221165000</created>
@@ -318,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656311539185</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Minor changes and fixes -- Update logout and CustomerWebService.cs">
+      <created>1656370168018</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1656370168018</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,6 +360,7 @@
     <MESSAGE value="Update Login and Load data (database), Implemented Logout and Exit" />
     <MESSAGE value="Update Trello" />
     <MESSAGE value="Update workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml" />
+    <MESSAGE value="Minor changes and fixes -- Update logout and CustomerWebService.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes and fixes -- Update logout and CustomerWebService.cs" />
   </component>
 </project>
