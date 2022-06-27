@@ -1,6 +1,6 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
-using s3910902_a1.Dto;
+using s3910902_a1.DTOs;
 using s3910902_a1.Models;
 using s3910902_a1.Utilities;
 using SimpleHashing;
@@ -27,24 +27,17 @@ public class LoginManager
         connection.Open();
 
         using var command = connection.CreateCommand();
-        command.CommandText =
-            "select * from [Login] where LoginID = @loginId";
-
+        command.CommandText = "select * from [Login] where LoginID = @loginId";
         command.Parameters.AddWithValue("loginId", loginId);
 
         // Code sourced and adapted from:
         // https://docs.microsoft.com/en-us/dotnet/csharp/linq/handle-null-values-in-query-expressions
         // https://www.jetbrains.com/help/resharper/InvertIf.html
         // https://stackoverflow.com/questions/40415020/datatable-nullreferenceexception
-        
+
         if (command.GetDataTable().Rows.Count is 0) return false;
 
-        Login = command.GetDataTable().Select().Select(x => new Login
-        {
-            LoginId = x.Field<string>("LoginID"),
-            CustomerId = x.Field<int>("CustomerID"),
-            PasswordHash = x.Field<string>("PasswordHash")
-        }).First();
+        Login = command.GetDataTable().Select().Select(CreateLogin).Single();
 
         // Code sourced and adapted from:
         // https://stackoverflow.com/questions/55005406/one-line-if-else-in-c-sharp
@@ -69,5 +62,15 @@ public class LoginManager
         command.Parameters.AddWithValue("passwordHash", loginDto.PasswordHash);
 
         command.ExecuteNonQuery();
+    }
+
+    private static Login CreateLogin(DataRow dataRow)
+    {
+        return new Login
+        {
+            LoginId = dataRow.Field<string>("LoginID"),
+            CustomerId = dataRow.Field<int>("CustomerID"),
+            PasswordHash = dataRow.Field<string>("PasswordHash")
+        };
     }
 }

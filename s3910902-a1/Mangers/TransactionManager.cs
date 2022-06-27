@@ -1,6 +1,6 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
-using s3910902_a1.Dto;
+using s3910902_a1.DTOs;
 using s3910902_a1.Models;
 using s3910902_a1.Utilities;
 
@@ -26,61 +26,7 @@ public class TransactionManager
         command.CommandText = "select * from [Transaction] where AccountNumber = @accountNumber";
         command.Parameters.AddWithValue("accountNumber", accountNumber);
 
-        var withdraw = command.GetDataTable().Select()
-            .Where(x => x.Field<char>("TransactionType") == 'W')
-            .Select(x => new Withdraw
-            {
-                TransactionId = x.Field<int>("TransactionID"),
-                TransactionType = x.Field<char>("TransactionType"),
-                Amount = x.Field<decimal>("Amount"),
-                Comment = x.Field<string?>("Comment"),
-                TransactionTimeUtc = x.Field<DateTime>("TransactionTimeUtc"),
-            }).ToList();
-
-        var deposit = command.GetDataTable().Select()
-            .Where(x => x.Field<char>("TransactionType") == 'D')
-            .Select(x => new Deposit
-            {
-                TransactionId = x.Field<int>("TransactionID"),
-                TransactionType = x.Field<char>("TransactionType"),
-                Amount = x.Field<decimal>("Amount"),
-                Comment = x.Field<string?>("Comment"),
-                TransactionTimeUtc = x.Field<DateTime>("TransactionTimeUtc"),
-            }).ToList();
-
-        var transfer = command.GetDataTable().Select()
-            .Where(x => x.Field<char>("TransactionType") == 'T')
-            .Select(x => new Transfer
-            {
-                TransactionId = x.Field<int>("TransactionID"),
-                TransactionType = x.Field<char>("TransactionType"),
-                DestinationAccountNumber = x.Field<int>("DestinationAccountNumber"),
-                Amount = x.Field<decimal>("Amount"),
-                Comment = x.Field<string?>("Comment"),
-                TransactionTimeUtc = x.Field<DateTime>("TransactionTimeUtc"),
-            }).ToList();
-
-        var service = command.GetDataTable().Select()
-            .Where(x => x.Field<char>("TransactionType") == 'S')
-            .Select(x => new Service()
-            {
-                TransactionId = x.Field<int>("TransactionID"),
-                TransactionType = x.Field<char>("TransactionType"),
-                Amount = x.Field<decimal>("Amount"),
-                Comment = x.Field<string?>("Comment"),
-                TransactionTimeUtc = x.Field<DateTime>("TransactionTimeUtc"),
-            }).ToList();
-
-        var transactions = new List<ITransaction>(withdraw.Count
-                                                  + deposit.Count
-                                                  + transfer.Count
-                                                  + service.Count);
-        transactions.AddRange(withdraw);
-        transactions.AddRange(deposit);
-        transactions.AddRange(transfer);
-        transactions.AddRange(service);
-
-        return transactions;
+        return command.GetDataTable().Select().Select(CreateTransactions).ToList();
     }
 
     public void InsertTransaction(TransactionDto transactionDto)
@@ -89,8 +35,11 @@ public class TransactionManager
         connection.Open();
 
         using var command = connection.CreateCommand();
+        
         // Code sourced and adapted from:
         // https://social.msdn.microsoft.com/Forums/en-US/9f65826b-7d4d-4877-9630-3008bbb80157/need-help-systemdatasqlclientsqlexception-incorrect-syntax-near-the-keyword-read?forum=adodotnetdataproviders
+        // https://stackoverflow.com/questions/4488054/merge-two-or-more-lists-into-one-in-c-sharp-net
+
         command.CommandText =
             @"insert into [Transaction] (TransactionType, AccountNumber, Amount, Comment, TransactionTimeUtc)
             values (@transactionType, @accountNumber, @amount, @comment, @transactionTimeUtc)";
@@ -102,5 +51,45 @@ public class TransactionManager
         command.Parameters.AddWithValue("transactionTimeUtc", transactionDto.TransactionTimeUtc);
 
         command.ExecuteNonQuery();
+    }
+
+    private static ITransaction CreateTransactions(DataRow dataRow)
+    {
+        return dataRow.Field<string>("TransactionType") switch
+        {
+            "W" => new Withdraw
+            {
+                TransactionId = dataRow.Field<int>("TransactionID"),
+                TransactionType = TransactionType.W,
+                Amount = dataRow.Field<decimal>("Amount"),
+                Comment = dataRow.Field<string?>("Comment"),
+                TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
+            },
+            "D" => new Deposit
+            {
+                TransactionId = dataRow.Field<int>("TransactionID"),
+                TransactionType = TransactionType.D,
+                Amount = dataRow.Field<decimal>("Amount"),
+                Comment = dataRow.Field<string?>("Comment"),
+                TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
+            },
+            "T" => new Transfer
+            {
+                TransactionId = dataRow.Field<int>("TransactionID"),
+                TransactionType = TransactionType.T,
+                Amount = dataRow.Field<decimal>("Amount"),
+                Comment = dataRow.Field<string?>("Comment"),
+                TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
+            },
+            "S" => new Service
+            {
+                TransactionId = dataRow.Field<int>("TransactionID"),
+                TransactionType = TransactionType.S,
+                Amount = dataRow.Field<decimal>("Amount"),
+                Comment = dataRow.Field<string?>("Comment"),
+                TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
+            },
+            _ => throw new NullReferenceException()
+        };
     }
 }

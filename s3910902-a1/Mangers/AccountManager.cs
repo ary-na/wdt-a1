@@ -1,7 +1,6 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
-using s3910902_a1.Dto;
-using s3910902_a1.Factories;
+using s3910902_a1.DTOs;
 using s3910902_a1.Models;
 using s3910902_a1.Utilities;
 
@@ -27,38 +26,11 @@ public class AccountManager
         command.CommandText = "select * from [Account] where CustomerID = @customerId";
         command.Parameters.AddWithValue("customerId", customerId);
 
-        var transactionManager = new TransactionManager(_connectionString);
+        // Code sourced and adapted from:
+        // https://stackoverflow.com/questions/3841990/are-there-any-benefits-to-using-a-c-sharp-method-group-if-available
+        // https://www.jetbrains.com/help/rider/ConvertClosureToMethodGroup.html
 
-        var dataTable = command.GetDataTable();
-
-        var accounts = command.GetDataTable().Select()
-            .Where(x => x.Field<string>("AccountType") is "S" && x.Field<string>("AccountType") != "")
-            .Select(x => new SavingAccount()
-            {
-                AccountNo = x.Field<int>("AccountNumber"),
-                AccountType = 'S',
-                CustomerId = customerId,
-                Balance = x.Field<decimal>("Balance"),
-                //Transactions = transactionManager.GetTransactions(x.Field<int>("AccountNumber"))
-            }).ToArray();
-
-        // var checkingAccount = command.GetDataTable().Select()
-        //     .Where(x => x.Field<string>("AccountType") is "C" && x.Field<string>("AccountType") != "")
-        //     .Select(x => new CheckingAccount()
-        //     {
-        //         AccountNo = x.Field<int>("AccountNumber"),
-        //         AccountType = 'C',
-        //         CustomerId = customerId,
-        //         Balance = x.Field<decimal>("Balance"),
-        //         //Transactions = transactionManager.GetTransactions(x.Field<int>("AccountNumber"))
-        //     }).Single();
-        //
-        // return new IAccount[]
-        // {
-        //     savingAccount,
-        //     checkingAccount
-        // };
-        return null;
+        return command.GetDataTable().Select().Select(CreateAccount).ToArray();
     }
 
     public void InsertAccount(AccountDto accountDto)
@@ -77,5 +49,34 @@ public class AccountManager
         command.Parameters.AddWithValue("balance", accountDto.Balance);
 
         command.ExecuteNonQuery();
+    }
+
+    // Code sourced and adapted from:
+    // https://dotnetcoretutorials.com/2019/10/15/the-factory-pattern-in-net-core/
+    // https://mahedee.net/factory-design-pattern/
+
+    private IAccount CreateAccount(DataRow dataRow)
+    {
+        var transactionManager = new TransactionManager(_connectionString);
+        return dataRow.Field<string>("AccountType") switch
+        {
+            "S" => new SavingAccount
+            {
+                AccountNo = dataRow.Field<int>("AccountNumber"),
+                AccountType = AccountType.S,
+                CustomerId = dataRow.Field<int>("CustomerID"),
+                Balance = dataRow.Field<decimal>("Balance"),
+                Transactions = transactionManager.GetTransactions(dataRow.Field<int>("AccountNumber"))
+            },
+            "C" => new CheckingAccount
+            {
+                AccountNo = dataRow.Field<int>("AccountNumber"),
+                AccountType = AccountType.C,
+                CustomerId = dataRow.Field<int>("CustomerID"),
+                Balance = dataRow.Field<decimal>("Balance"),
+                Transactions = transactionManager.GetTransactions(dataRow.Field<int>("AccountNumber"))
+            },
+            _ => throw new NullReferenceException()
+        };
     }
 }

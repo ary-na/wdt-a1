@@ -1,4 +1,4 @@
-namespace s3910902_a1.Dto;
+namespace s3910902_a1.DTOs;
 
 public class AccountDto
 {

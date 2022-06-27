@@ -14,9 +14,9 @@ namespace s3910902_a1.Menus;
 
 public static class LoginMenu
 {
-    public static void Run(string connectionString)
+    public static void Run(ModelManger modelManger)
     {
-        var loginManager = new LoginManager(connectionString);
+        var loginManager = new LoginManager(modelManger.ConnectionString);
         bool isValid;
         do
         {
@@ -33,16 +33,9 @@ public static class LoginMenu
             if (!isValid)
                 Console.WriteLine("Invalid Login ID and/or Password, try again.");
         } while (!isValid);
-
-        var customerManager = new CustomerManager(connectionString, loginManager);
-
-        foreach (var x in customerManager.Customer.Accounts)
-        {
-            Console.WriteLine(x.Balance);
-        }
-
+        
         if (isValid)
-            MainMenu.Run();
+            MainMenu.Run(loginManager);
     }
 
     private static string ReadPassword()

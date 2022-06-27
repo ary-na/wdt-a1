@@ -1,6 +1,6 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
-using s3910902_a1.Dto;
+using s3910902_a1.DTOs;
 using s3910902_a1.Models;
 using s3910902_a1.Utilities;
 
@@ -14,7 +14,7 @@ public class CustomerManager
 {
     private readonly string _connectionString;
     private readonly LoginManager _loginManager;
-    public Customer? Customer { get; private set; }
+    public Customer? Customer { get; }
 
     public CustomerManager(string connectionString)
     {
@@ -32,18 +32,7 @@ public class CustomerManager
         command.CommandText = "select * from [Customer] where CustomerID = @customerId";
         command.Parameters.AddWithValue("customerId", _loginManager.Login?.CustomerId);
 
-        var accountManager = new AccountManager(_connectionString);
-
-        Customer = command.GetDataTable().Select().Select(x => new Customer
-        {
-            CustomerId = x.Field<int>("CustomerID"),
-            Name = x.Field<string?>("Name"),
-            Address = x.Field<string?>("Address"),
-            City = x.Field<string?>("City"),
-            PostCode = x.Field<string?>("PostCode"),
-            Accounts = accountManager.GetAccounts(x.Field<int>("CustomerID")),
-            Login = _loginManager.Login
-        }).Single();
+        Customer = command.GetDataTable().Select().Select(CreateCustomer).Single();
     }
 
     public void InsertCustomer(CustomerDto customerDto)
@@ -65,5 +54,20 @@ public class CustomerManager
         command.Parameters.AddWithValue("postCode", customerDto.PostCode?.GetObjectOrDbNull());
 
         command.ExecuteNonQuery();
+    }
+
+    private Customer CreateCustomer(DataRow dataRow)
+    {
+        var accountManager = new AccountManager(_connectionString);
+        return new Customer
+        {
+            CustomerId = dataRow.Field<int>("CustomerID"),
+            Name = dataRow.Field<string?>("Name"),
+            Address = dataRow.Field<string?>("Address"),
+            City = dataRow.Field<string?>("City"),
+            PostCode = dataRow.Field<string?>("PostCode"),
+            Accounts = accountManager.GetAccounts(dataRow.Field<int>("CustomerID")),
+            Login = _loginManager.Login
+        };
     }
 }

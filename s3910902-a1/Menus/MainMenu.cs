@@ -1,3 +1,6 @@
+using s3910902_a1.Mangers;
+using s3910902_a1.Models;
+
 namespace s3910902_a1.Menus;
 
 public static class MainMenu
@@ -6,12 +9,17 @@ public static class MainMenu
     // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#code-try-0
     // https://www.geeksforgeeks.org/switch-statement-in-c-sharp/
 
+    private static readonly ModelManger ModelManger = new();
+    private static CustomerManager? _customerManager;
+    
     // Run menu
-    public static void Run()
+    public static void Run(LoginManager loginManager)
     {
+        _customerManager = new CustomerManager(ModelManger.ConnectionString, loginManager);
         var exit = false;
         do
         {
+            Console.WriteLine(_customerManager.Customer?.Name);
             PrintMenu();
             switch (ReadInput())
             {
@@ -81,6 +89,12 @@ public static class MainMenu
     private static void Withdraw() => Console.WriteLine("Withdraw");
     private static void Transfer() => Console.WriteLine("Transfer");
     private static void MyStatement() => Console.WriteLine("MyStatement");
-    private static void Logout() => Console.WriteLine("Logout");
-    private static void Exit() => Console.WriteLine("Exit");
+    private static void Logout()
+    {
+        Console.Clear();
+        _customerManager = null;
+        LoginMenu.Run(new ModelManger());
+    }
+
+    private static void Exit() => Console.WriteLine("Program ending!");
 }
