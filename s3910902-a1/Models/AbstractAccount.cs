@@ -2,6 +2,10 @@ using s3910902_a1.Persistence;
 
 namespace s3910902_a1.Models;
 
+// Code sourced and adapted from:
+// Week 3 Lectorial - Cat.cs
+// https://rmit.instructure.com/courses/102750/files/24463725?wrap=1
+
 public abstract class AbstractAccount : IAccount
 {
     protected readonly IAccountPersistence _accountPersistence;

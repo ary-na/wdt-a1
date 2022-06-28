@@ -90,6 +90,12 @@ public static class MainMenu
     // Week 1 Lectorial - Person.cs
     // https://rmit.instructure.com/courses/102750/files/25011410?wrap=1
 
+    // Code sourced and adapted from:
+    // https://docs.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace?view=net-6.0
+    // https://docs.microsoft.com/en-us/dotnet/api/system.datetime.utcnow?view=net-6.0
+    // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
+    // https://docs.microsoft.com/en-us/dotnet/api/system.int32.tryparse?view=net-6.0
+    
     // Menu methods
     private static void Deposit()
     {

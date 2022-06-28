@@ -5,10 +5,19 @@ using s3910902_a1.Utilities;
 
 namespace s3910902_a1.Persistence;
 
+// Code sourced and adapted from:
+// Week 3 Lectorial - AnimalPersistence.cs
+// https://rmit.instructure.com/courses/102750/files/24463725?wrap=1
+
 public class AccountPersistence : IAccountPersistence
 {
     private static readonly ModelManger ModelManger = new();
 
+    // Code sourced and adapted from:
+    // https://blog.jetbrains.com/dotnet/2019/05/14/switch-expressions-pattern-based-usings-look-new-language-features-c-8/
+    // https://docs.microsoft.com/en-us/azure/mysql/flexible-server/connect-csharp
+    // https://stackoverflow.com/questions/16016023/what-is-the-use-of-a-persistence-layer-in-any-application
+    
     public ITransaction InsertTransaction(ITransaction transaction)
     {
         // Insert trnasaction
