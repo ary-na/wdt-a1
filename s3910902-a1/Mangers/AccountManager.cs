@@ -63,7 +63,7 @@ public class AccountManager
             "S" => new SavingAccount
             {
                 AccountNo = dataRow.Field<int>("AccountNumber"),
-                AccountType = AccountType.S,
+                AccountType = AccountType.Savings,
                 CustomerId = dataRow.Field<int>("CustomerID"),
                 Balance = dataRow.Field<decimal>("Balance"),
                 Transactions = transactionManager.GetTransactions(dataRow.Field<int>("AccountNumber"))
@@ -71,7 +71,7 @@ public class AccountManager
             "C" => new CheckingAccount
             {
                 AccountNo = dataRow.Field<int>("AccountNumber"),
-                AccountType = AccountType.C,
+                AccountType = AccountType.Checking,
                 CustomerId = dataRow.Field<int>("CustomerID"),
                 Balance = dataRow.Field<decimal>("Balance"),
                 Transactions = transactionManager.GetTransactions(dataRow.Field<int>("AccountNumber"))

@@ -65,7 +65,7 @@ public class TransactionManager
             "W" => new Withdraw
             {
                 TransactionId = dataRow.Field<int>("TransactionID"),
-                TransactionType = TransactionType.W,
+                TransactionType = TransactionType.Withdraw,
                 Amount = dataRow.Field<decimal>("Amount"),
                 Comment = dataRow.Field<string?>("Comment"),
                 TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
@@ -73,7 +73,7 @@ public class TransactionManager
             "D" => new Deposit
             {
                 TransactionId = dataRow.Field<int>("TransactionID"),
-                TransactionType = TransactionType.D,
+                TransactionType = TransactionType.Deposit,
                 Amount = dataRow.Field<decimal>("Amount"),
                 Comment = dataRow.Field<string?>("Comment"),
                 TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
@@ -81,7 +81,7 @@ public class TransactionManager
             "T" => new Transfer
             {
                 TransactionId = dataRow.Field<int>("TransactionID"),
-                TransactionType = TransactionType.T,
+                TransactionType = TransactionType.Transfer,
                 Amount = dataRow.Field<decimal>("Amount"),
                 Comment = dataRow.Field<string?>("Comment"),
                 TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
@@ -89,7 +89,7 @@ public class TransactionManager
             "S" => new Service
             {
                 TransactionId = dataRow.Field<int>("TransactionID"),
-                TransactionType = TransactionType.S,
+                TransactionType = TransactionType.Service,
                 Amount = dataRow.Field<decimal>("Amount"),
                 Comment = dataRow.Field<string?>("Comment"),
                 TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
