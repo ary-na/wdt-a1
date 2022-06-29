@@ -9,5 +9,5 @@ public interface ITransaction
     public decimal Amount { get; set; }
     public string? Comment { get; set; }
     public DateTime TransactionTimeUtc { get; set; }
-    public void Modifies();
+    public void Modifies(IAccount account, decimal amount);
 }

@@ -4,6 +4,8 @@ public class Deposit : AbstractTransaction
 {
     public Deposit()
     {
+        TransactionType = TransactionType.Deposit;
+        TransactionTimeUtc = DateTime.UtcNow;
     }
 
     public Deposit(int accountNumber, decimal amount, string? comment)

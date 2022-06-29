@@ -20,8 +20,8 @@ public abstract class AbstractTransaction : ITransaction
         TransactionTimeUtc = DateTime.UtcNow;
     }
     
-    public void Modifies()
+    public void Modifies(IAccount account, decimal amount)
     {
-        throw new NotImplementedException();
+        account.Credit(amount);
     }
 }

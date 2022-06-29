@@ -1,4 +1,5 @@
 using System.Transactions;
+using s3910902_a1.Factories;
 using s3910902_a1.Mangers;
 using s3910902_a1.Models;
 using s3910902_a1.Utilities;
@@ -54,6 +55,7 @@ public static class MainMenu
 
     // Code sourced and adapted from:
     // Week 3 Lectorial - FormatStrings.cs
+    // Week 3 Lectorial - PatternMatching.cs
     // https://rmit.instructure.com/courses/102750/files/24463725?wrap=1
 
     // Print menu
@@ -87,6 +89,15 @@ public static class MainMenu
         return input;
     }
 
+    private static void PrintAccounts(string transactionType)
+    {
+        var Accounts = _customerManager?.Customer?.Accounts;
+        Console.WriteLine($"\n--- {transactionType} ---\n");
+
+        for (var i = 0; i < Accounts?.Length; i++)
+            Console.WriteLine($"{i+1}. {Accounts?[i].AccountType,-20}{Accounts?[i].AccountNo,-20}{Accounts?[i].Balance,-20:C}");
+    }
+
     // Code sourced and adapted from:
     // Week 1 Lectorial - Person.cs
     // https://rmit.instructure.com/courses/102750/files/25011410?wrap=1
@@ -100,32 +111,17 @@ public static class MainMenu
     // Menu methods
     private static void Deposit()
     {
-        Console.WriteLine();
-        var accountCounter = 1;
-        Console.WriteLine("--- Deposit ---");
-        Console.WriteLine();
+        PrintAccounts("Deposit");
+        var selectedAccountInput = "\nSelect an account: ".ReadInput();
 
-        foreach (var account in _customerManager.Customer.Accounts)
-        {
-            Console.WriteLine(
-                $"{accountCounter}. {account.AccountType,-15}{account.AccountNo,-15}{account.Balance,-15:C}");
-            accountCounter++;
-        }
-
-        Console.WriteLine();
-        if (!int.TryParse("Select an account: ".ReadInput(), out var input) || !input.IsInRange(1, 2))
-        {
-            "Invalid input".ConsoleColorRed();
+        if (!selectedAccountInput.SelectedAccount())
             return;
-        }
 
-        var selectedAccount =
-            input is 1 ? _customerManager.Customer.Accounts[0] : _customerManager.Customer.Accounts[1];
-        Console.WriteLine();
+        var selectedAccount = int.Parse(selectedAccountInput) is 1
+            ? _customerManager.Customer.Accounts[0]
+            : _customerManager.Customer.Accounts[1];
         Console.WriteLine(
-            $"{selectedAccount.AccountType} " +
-            $"{selectedAccount.AccountNo} " +
-            $"Balance: {selectedAccount.Balance:C} " +
+            $"\n{selectedAccount.AccountType} {selectedAccount.AccountNo} Balance: {selectedAccount.Balance:C} " +
             $"Available Balance: {selectedAccount.AvailableBalance:C}");
 
         if (decimal.TryParse("Enter amount: ".ReadInput(), out var amount) && amount <= 0)
@@ -138,9 +134,9 @@ public static class MainMenu
         if (string.IsNullOrWhiteSpace(comment) || comment.Equals("n"))
             comment = null;
 
-        var deposit = new Deposit(selectedAccount.AccountNo, amount, comment);
-        selectedAccount.AddTransaction(deposit);
+        var deposit = TransactionFactory.Create(TransactionType.Deposit, selectedAccount.AccountNo, amount, comment);
         selectedAccount.Credit(amount);
+        selectedAccount.AddTransaction(deposit);
 
         Console.WriteLine($"Deposit of {amount:C} successful, account balance is now {selectedAccount.Balance:C}");
         Console.WriteLine();
@@ -260,6 +256,14 @@ public static class MainMenu
         Console.WriteLine();
     }
 
+    // Code sourced and adapted from:
+    // https://stackoverflow.com/questions/30910046/only-clear-part-of-console-window
+    // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/ranges
+    // https://stackoverflow.com/questions/200574/linq-equivalent-of-foreach-for-ienumerablet
+    // https://stackoverflow.com/questions/24193898/how-do-i-convert-foreach-statement-into-linq-expression
+    // https://stackoverflow.com/questions/14848275/how-to-get-remainder-and-mod-by-dividing-using-c-sharp
+    // https://stackoverflow.com/questions/8985131/how-to-write-in-current-line-of-console
+    // https://stackoverflow.com/questions/40125217/linq-and-order-by-a-date-field
     private static void MyStatement()
     {
         Console.WriteLine();
@@ -294,35 +298,41 @@ public static class MainMenu
 
 
         Console.WriteLine(
-            $"{"ID",-20}{"Type",-20}{"Account Number",-20}{"Destination",-20}{"Time",-20}{"Comment",-20}");
+            $"{"ID",-20}{"Type",-20}{"Account Number",-20}{"Destination",-20}{"Amount",-20}{"Time",-20}{"Comment",-20}");
 
 
         var quit = false;
-        var start = 0;
-        var count = 4;
         var length = selectedAccount.Transactions.Count;
-        var pages = (selectedAccount.Transactions.Count / 4) + 1;
+        var start = 0;
+        var count = length < 4 ? length : 4;
+        var pages = selectedAccount.Transactions.Count % 4 == 0 ? length / 4 : (length / 4) + 1;
         var currentPage = 1;
         var separator = new string('-', 20);
+
+        var selectedAccount1 = selectedAccount.Transactions
+            .OrderByDescending(x => x.TransactionTimeUtc.Date)
+            .ThenByDescending(x => x.TransactionTimeUtc.TimeOfDay)
+            .ToList();
+
         do
         {
-            selectedAccount.Transactions.GetRange(start, count).ForEach(transaction =>
-            {
-                
-                Console.WriteLine(
-                    $"{transaction.TransactionId,-20}{transaction.TransactionType,-20}{transaction.AccountNumber,-20}" +
-                    $"{transaction.DestinationAccountNumber,-20}{transaction.Amount,-20:C}{transaction.TransactionTimeUtc.ToLocalTime().ToString("dd/MM/yyyy HH:mm tt"),-20}" +
-                    $"{transaction.Comment,-20}");
-            });
+            selectedAccount1.GetRange(start, count)
+                .ToList().ForEach(transaction =>
+                {
+                    Console.WriteLine(
+                        $"{transaction.TransactionId,-20}{transaction.TransactionType,-20}{transaction.AccountNumber,-20}" +
+                        $"{transaction.DestinationAccountNumber,-20}{transaction.Amount,-20:C}{transaction.TransactionTimeUtc.ToLocalTime().ToString("dd/MM/yyyy HH:mm tt"),-20}" +
+                        $"{transaction.Comment,-20}");
+                });
 
             if (count < 4)
             {
                 for (var i = 0; i < 4 - count; i++)
                 {
                     Console.WriteLine(
-                        $"{separator,-20}{separator,-20}{separator,-20}" +
-                        $"{separator,-20}{separator,-20}{separator,-20}" +
-                        $"{separator,-20}");
+                        $"{"",-20}{"",-20}{"",-20}" +
+                        $"{"",-20}{"",-20}{"",-20}" +
+                        $"{"",-20}");
                 }
             }
 
@@ -334,14 +344,26 @@ public static class MainMenu
                     start += 4;
                     if (start + count >= length)
                         count = length % 4;
+                    if (start >= length)
+                    {
+                        start = 0;
+                        count = length < 4 ? length : 4;
+                        currentPage = 0;
+                    }
+
                     currentPage++;
                     Console.SetCursorPosition(0, Console.CursorTop - 7);
                     break;
                 case "p":
-                    start -= 4;
-                    count = 4;
-                    currentPage--;
+                    if (start > 0)
+                    {
+                        start -= 4;
+                        count = 4;
+                        currentPage--;
+                    }
+
                     Console.SetCursorPosition(0, Console.CursorTop - 7);
+
                     break;
                 case "q":
                     quit = true;
@@ -352,49 +374,11 @@ public static class MainMenu
             }
         } while (!quit);
 
-        //
-        // var transactionsCount = selectedAccount.Transactions.Count;
-        // for (var i = 0; i < transactionsCount; i++)
-        // {
-        //     var cursorPosition = Console.GetCursorPosition();
-        //     Console.WriteLine(
-        //         $"{selectedAccount.Transactions[i].TransactionId,-20}{selectedAccount.Transactions[i].TransactionType,-20}{selectedAccount.Transactions[i].AccountNumber,-20}" +
-        //         $"{selectedAccount.Transactions[i].DestinationAccountNumber,-20}{selectedAccount.Transactions[i].Amount,-20}{selectedAccount.Transactions[i].TransactionTimeUtc.ToLocalTime().ToString("dd/MM/yyyy HH:mm tt"),-20}" +
-        //         $"{selectedAccount.Transactions[i].Comment,-20}");
-        //
-        //     if (4 * i + 3 == i)
-        //     {
-        //         Console.WriteLine($"Page 1 of 4");
-        //         Console.WriteLine("Options: n (next page) | p (previous page | q (quit))");
-        //         switch ("Enter an option: ".ReadInput())
-        //         {
-        //             case "n":
-        //                 if (i != transactionsCount && i < transactionsCount - 4)
-        //                     Console.SetCursorPosition(cursorPosition.Left, cursorPosition.Top);
-        //                 break;
-        //             case "p":
-        //                 if (i != selectedAccount.Transactions.Count && i != 0)
-        //                 {
-        //                     Console.SetCursorPosition(cursorPosition.Left, cursorPosition.Top);
-        //                     i -= 4;
-        //                 }
-        //
-        //                 break;
-        //             case "q":
-        //                 return;
-        //             default:
-        //                 "Invalid input".ConsoleColorRed();
-        //                 return;
-        //         }
-        //     }
-        //     if(i == transactionsCount)
-        // }
-
         Console.WriteLine();
     }
 
-// Code sourced and adapted from:
-// https://docs.microsoft.com/en-us/dotnet/api/system.console.clear?view=net-6.0
+    // Code sourced and adapted from:
+    // https://docs.microsoft.com/en-us/dotnet/api/system.console.clear?view=net-6.0
     private static void Logout()
     {
         Console.Clear();
