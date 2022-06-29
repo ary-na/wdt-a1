@@ -5,7 +5,8 @@ public class Withdraw : AbstractTransaction
     public Withdraw()
     { }
 
-    public Withdraw(TransactionType transactionType, int accountNumber, decimal amount, string? comment,
-        DateTime transactionTimeUtc) : base(transactionType, accountNumber, amount, comment, transactionTimeUtc)
-    { }
+    public Withdraw(int accountNumber, decimal amount, string? comment) : base(accountNumber, amount, comment)
+    {
+        TransactionType = TransactionType.Withdraw;
+    }
 }

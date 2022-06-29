@@ -12,13 +12,12 @@ public abstract class AbstractTransaction : ITransaction
 
     protected AbstractTransaction() 
     { }
-    protected AbstractTransaction(TransactionType transactionType, int accountNumber, decimal amount, string? comment, DateTime transactionTimeUtc)
+    protected AbstractTransaction(int accountNumber, decimal amount, string? comment)
     {
-        TransactionType = transactionType;
         AccountNumber = accountNumber;
         Amount = amount;
         Comment = comment;
-        TransactionTimeUtc = transactionTimeUtc;
+        TransactionTimeUtc = DateTime.UtcNow;
     }
     
     public void Modifies()

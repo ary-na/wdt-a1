@@ -4,9 +4,9 @@ public class Transfer : AbstractTransaction
 {
     public Transfer()
     { }
-    public Transfer(TransactionType transactionType, int accountNumber, int destinationAccountNumber , decimal amount, string? comment,
-        DateTime transactionTimeUtc) : base(transactionType, accountNumber, amount, comment, transactionTimeUtc)
+    public Transfer(int accountNumber, int destinationAccountNumber , decimal amount, string? comment) : base(accountNumber, amount, comment)
     {
+        TransactionType = TransactionType.Transfer;
         DestinationAccountNumber = destinationAccountNumber;
     }
 }

@@ -125,7 +125,7 @@ public static class MainMenu
             $"{selectedAccount.AccountType} " +
             $"{selectedAccount.AccountNo} " +
             $"Balance: {selectedAccount.Balance:C} " +
-            $"Available Balance: {selectedAccount.Balance:C}");
+            $"Available Balance: {selectedAccount.AvailableBalance:C}");
 
         if (decimal.TryParse("Enter amount: ".ReadInput(), out var amount) && amount <= 0)
         {
@@ -137,7 +137,7 @@ public static class MainMenu
         if (string.IsNullOrWhiteSpace(comment) || comment.Equals("n"))
             comment = null;
 
-        var deposit = new Deposit(TransactionType.Deposit, selectedAccount.AccountNo, amount, comment, DateTime.UtcNow);
+        var deposit = new Deposit(selectedAccount.AccountNo, amount, comment);
         selectedAccount.AddTransaction(deposit);
         selectedAccount.Credit(amount);
         
@@ -145,9 +145,123 @@ public static class MainMenu
         Console.WriteLine();
     }
 
-    private static void Withdraw() => Console.WriteLine("Withdraw");
-    private static void Transfer() => Console.WriteLine("Transfer");
-    private static void MyStatement() => Console.WriteLine("MyStatement");
+    private static void Withdraw()
+    {
+        Console.WriteLine();
+        var accountCounter = 1;
+        Console.WriteLine("--- Withdraw ---");
+        Console.WriteLine();
+
+        foreach (var account in _customerManager.Customer.Accounts)
+        {
+            Console.WriteLine(
+                $"{accountCounter}. {account.AccountType,-15}{account.AccountNo,-15}{account.Balance,-15:C}");
+            accountCounter++;
+        }
+
+        Console.WriteLine();
+        if (!int.TryParse("Select an account: ".ReadInput(), out var input) || !input.IsInRange(1, 2))
+        {
+            "Invalid input".ConsoleColorRed();
+            return;
+        }
+
+        var selectedAccount =
+            input is 1 ? _customerManager.Customer.Accounts[0] : _customerManager.Customer.Accounts[1];
+        Console.WriteLine();
+        Console.WriteLine(
+            $"{selectedAccount.AccountType} " +
+            $"{selectedAccount.AccountNo} " +
+            $"Balance: {selectedAccount.Balance:C} " +
+            $"Available Balance: {selectedAccount.AvailableBalance:C}");
+
+        if (decimal.TryParse("Enter amount: ".ReadInput(), out var amount) && amount <= 0)
+        {
+            "Amount cannot be negative.".ConsoleColorRed();
+            return;
+        }
+
+        var comment = "Enter comment (n to quit, max length 30): ".ReadInput();
+        if (string.IsNullOrWhiteSpace(comment) || comment.Equals("n"))
+            comment = null;
+
+        var withdraw = new Withdraw(selectedAccount.AccountNo, amount, comment);
+
+        if (!selectedAccount.Debit(amount))
+        {
+            "Transaction failed.".ConsoleColorRed();
+            return;
+        }
+        
+        selectedAccount.AddTransaction(withdraw);
+
+        Console.WriteLine($"Withdraw of {amount:C} successful, account balance is now {selectedAccount.Balance:C}");
+        Console.WriteLine();
+    }
+
+    private static void Transfer()
+    {
+        Console.WriteLine();
+        var accountCounter = 1;
+        Console.WriteLine("--- Transfer ---");
+        Console.WriteLine();
+
+        foreach (var account in _customerManager.Customer.Accounts)
+        {
+            Console.WriteLine(
+                $"{accountCounter}. {account.AccountType,-15}{account.AccountNo,-15}{account.Balance,-15:C}");
+            accountCounter++;
+        }
+
+        Console.WriteLine();
+        if (!int.TryParse("Select an account: ".ReadInput(), out var input) || !input.IsInRange(1, 2))
+        {
+            "Invalid input".ConsoleColorRed();
+            return;
+        }
+        
+        if (!int.TryParse("Enter destination account number: ".ReadInput(), out var destinationAccountNumber))
+        {
+            "Invalid input".ConsoleColorRed();
+            return;
+        }
+
+        var selectedAccount =
+            input is 1 ? _customerManager.Customer.Accounts[0] : _customerManager.Customer.Accounts[1];
+        Console.WriteLine();
+        Console.WriteLine(
+            $"{selectedAccount.AccountType} " +
+            $"{selectedAccount.AccountNo} " +
+            $"Balance: {selectedAccount.Balance:C} " +
+            $"Available Balance: {selectedAccount.AvailableBalance:C}");
+
+        if (decimal.TryParse("Enter amount: ".ReadInput(), out var amount) && amount <= 0)
+        {
+            "Amount cannot be negative.".ConsoleColorRed();
+            return;
+        }
+
+        var comment = "Enter comment (n to quit, max length 30): ".ReadInput();
+        if (string.IsNullOrWhiteSpace(comment) || comment.Equals("n"))
+            comment = null;
+
+        var transfer = new Transfer(selectedAccount.AccountNo, destinationAccountNumber, amount, comment);
+
+        if (!selectedAccount.Debit(amount))
+        {
+            "Transaction failed.".ConsoleColorRed();
+            return;
+        }
+        
+        selectedAccount.AddTransaction(transfer);
+
+        Console.WriteLine($"Transfer of {amount:C} successful, account balance is now {selectedAccount.Balance:C}");
+        Console.WriteLine();
+    }
+    private static void MyStatement()
+    {
+        
+    }
 
     // Code sourced and adapted from:
     // https://docs.microsoft.com/en-us/dotnet/api/system.console.clear?view=net-6.0

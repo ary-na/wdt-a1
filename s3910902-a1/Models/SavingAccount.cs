@@ -2,17 +2,22 @@ namespace s3910902_a1.Models;
 
 public class SavingAccount : AbstractAccount
 {
-    public SavingAccount()
+    public override bool Credit(decimal amount)
     {
+        if (amount <= 0) return false;
+
+        Balance = _accountPersistence.UpdateBalance(AccountNo, amount + Balance);
         AvailableBalance = Balance;
+        return true;
     }
 
     public override bool Debit(decimal amount)
     {
-        if (amount <= 0 || Balance <= 0)
+        if (amount <= 0 || Balance - amount <= 0)
             return false;
 
-        Balance -= _accountPersistence.UpdateBalance(AccountNo, amount);;
+        Balance = _accountPersistence.UpdateBalance(AccountNo, Balance - amount);
+        AvailableBalance = Balance;
         return true;
     }
 }

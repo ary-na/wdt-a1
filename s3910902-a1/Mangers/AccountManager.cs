@@ -66,6 +66,7 @@ public class AccountManager
                 AccountType = AccountType.Savings,
                 CustomerId = dataRow.Field<int>("CustomerID"),
                 Balance = dataRow.Field<decimal>("Balance"),
+                AvailableBalance = dataRow.Field<decimal>("Balance"),
                 Transactions = transactionManager.GetTransactions(dataRow.Field<int>("AccountNumber"))
             },
             "C" => new CheckingAccount
@@ -74,6 +75,7 @@ public class AccountManager
                 AccountType = AccountType.Checking,
                 CustomerId = dataRow.Field<int>("CustomerID"),
                 Balance = dataRow.Field<decimal>("Balance"),
+                AvailableBalance = dataRow.Field<decimal>("Balance") - 300M,
                 Transactions = transactionManager.GetTransactions(dataRow.Field<int>("AccountNumber"))
             },
             _ => throw new NullReferenceException()

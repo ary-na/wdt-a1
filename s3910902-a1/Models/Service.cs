@@ -9,9 +9,18 @@ public class Service : AbstractTransaction
     private const decimal TransferFee = 0.10M;
 
     public Service()
-    { }
-    public Service(TransactionType transactionType, int accountNumber, decimal amount, string? comment,
-        DateTime transactionTimeUtc) : base(transactionType, accountNumber, amount, comment, transactionTimeUtc)
     {
+    }
+
+    public Service(int accountNumber, decimal amount, string? comment) : base(accountNumber, amount, comment)
+    {
+    }
+
+    public Service(TransactionType withdrawOrTransfer, int accountNumber)
+    {
+        TransactionType = TransactionType.Service;
+        AccountNumber = accountNumber;
+        Amount = withdrawOrTransfer == TransactionType.Withdraw ? WithdrawFee : TransferFee;
+        TransactionTimeUtc = DateTime.UtcNow;
     }
 }

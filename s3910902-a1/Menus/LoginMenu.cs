@@ -23,8 +23,8 @@ public static class LoginMenu
             //Console.Write("Enter Login ID: ");
             //var loginId = Console.ReadLine();
 
-            var loginId = "12345678";
-            var password = "abc123";
+            var loginId = "17963428";
+            var password = "youWill_n0tGuess-This!";
 
             //Console.Write("Enter Password: ");
             //var password = ReadPassword();

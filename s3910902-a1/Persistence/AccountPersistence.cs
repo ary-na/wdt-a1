@@ -17,7 +17,8 @@ public class AccountPersistence : IAccountPersistence
     // https://blog.jetbrains.com/dotnet/2019/05/14/switch-expressions-pattern-based-usings-look-new-language-features-c-8/
     // https://docs.microsoft.com/en-us/azure/mysql/flexible-server/connect-csharp
     // https://stackoverflow.com/questions/16016023/what-is-the-use-of-a-persistence-layer-in-any-application
-    
+    // https://stackoverflow.com/questions/20160928/how-to-count-the-number-of-rows-from-sql-table-in-c
+
     public ITransaction InsertTransaction(ITransaction transaction)
     {
         // Insert trnasaction
@@ -25,17 +26,17 @@ public class AccountPersistence : IAccountPersistence
         connection.Open();
 
         using var command = connection.CreateCommand();
-        command.CommandText = 
+        command.CommandText =
             @"insert into [Transaction] (TransactionType, AccountNumber, DestinationAccountNumber, Amount, Comment, TransactionTimeUtc)
             values (@transactionType, @accountNumber, @destinationAccountNumber, @amount, @comment, @transactionTimeUtc)";
 
         var transactionType = transaction.TransactionType switch
         {
-             TransactionType.Deposit => "D",
-             TransactionType.Withdraw => "W",
-             TransactionType.Transfer => "T",
-             TransactionType.Service => "S",
-             _ => throw new NullReferenceException()
+            TransactionType.Deposit => "D",
+            TransactionType.Withdraw => "W",
+            TransactionType.Transfer => "T",
+            TransactionType.Service => "S",
+            _ => throw new NullReferenceException()
         };
 
         command.Parameters.AddWithValue("transactionType", transactionType);
@@ -46,7 +47,7 @@ public class AccountPersistence : IAccountPersistence
         command.Parameters.AddWithValue("transactionTimeUtc", transaction.TransactionTimeUtc);
 
         command.ExecuteNonQuery();
-        
+
         // Return transaction
         return transaction;
     }
@@ -66,5 +67,22 @@ public class AccountPersistence : IAccountPersistence
 
         // Return Balance
         return balance;
+    }
+
+    public int CountTransactions(int accountNumber)
+    {
+        // Count transactions from database
+        using var connection = new SqlConnection(ModelManger.ConnectionString);
+        connection.Open();
+
+        using var command = connection.CreateCommand();
+        command.CommandText = $@"select count(*) from [Transaction] where AccountNumber = @accountNumber and 
+                                (TransactionType = @transactionTypeWithdraw or TransactionType = @transactionTypeTransfer)";
+        command.Parameters.AddWithValue("accountNumber", accountNumber);
+        command.Parameters.AddWithValue("transactionTypeWithdraw", "W");
+        command.Parameters.AddWithValue("transactionTypeTransfer", "T");
+
+        // Return transaction count
+        return (int)command.ExecuteScalar();
     }
 }
