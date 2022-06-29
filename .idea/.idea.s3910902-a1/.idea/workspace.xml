@@ -4,7 +4,13 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update Trello" />
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update Trello">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/ITransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/ITransaction.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,12 +26,16 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="essential-feature-transactions" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/989c1aae0872440ea43c9fc8208984e21755f0/5e/e73cb0d7/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/134622bcf8ad016d3faf7776eb0457b76a5798c537458aa82651ab2cee6e1/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d4f98ebdd878db4fbd98872756eb7be6ad9e468fe5cd6b16385d8c4993109a/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/AbstractAccount.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -346,7 +356,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656469552863</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Update workspace.xml">
+      <created>1656470289553</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1656470289553</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Update Trello">
+      <created>1656470707432</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1656470707432</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,10 +410,10 @@
     <MESSAGE value="Fixed the issue where VerifyLogin() ran only once inside loop" />
     <MESSAGE value="Create Account factory" />
     <MESSAGE value="Update Login and Load data (database), Implemented Logout and Exit" />
-    <MESSAGE value="Update workspace.xml" />
     <MESSAGE value="Minor changes and fixes -- Update logout and CustomerWebService.cs" />
     <MESSAGE value="Update Model -- implemented Debit" />
     <MESSAGE value="Code clean up" />
+    <MESSAGE value="Update workspace.xml" />
     <MESSAGE value="Update Trello" />
     <option name="LAST_COMMIT_MESSAGE" value="Update Trello" />
   </component>

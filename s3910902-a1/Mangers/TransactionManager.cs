@@ -66,6 +66,8 @@ public class TransactionManager
             {
                 TransactionId = dataRow.Field<int>("TransactionID"),
                 TransactionType = TransactionType.Withdraw,
+                AccountNumber = dataRow.Field<int>("AccountNumber"),
+                DestinationAccountNumber = dataRow.Field<int?>("DestinationAccountNumber"),
                 Amount = dataRow.Field<decimal>("Amount"),
                 Comment = dataRow.Field<string?>("Comment"),
                 TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
@@ -74,6 +76,8 @@ public class TransactionManager
             {
                 TransactionId = dataRow.Field<int>("TransactionID"),
                 TransactionType = TransactionType.Deposit,
+                AccountNumber = dataRow.Field<int>("AccountNumber"),
+                DestinationAccountNumber = dataRow.Field<int?>("DestinationAccountNumber"),
                 Amount = dataRow.Field<decimal>("Amount"),
                 Comment = dataRow.Field<string?>("Comment"),
                 TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
@@ -82,6 +86,8 @@ public class TransactionManager
             {
                 TransactionId = dataRow.Field<int>("TransactionID"),
                 TransactionType = TransactionType.Transfer,
+                AccountNumber = dataRow.Field<int>("AccountNumber"),
+                DestinationAccountNumber = dataRow.Field<int?>("DestinationAccountNumber"),
                 Amount = dataRow.Field<decimal>("Amount"),
                 Comment = dataRow.Field<string?>("Comment"),
                 TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),
@@ -90,6 +96,8 @@ public class TransactionManager
             {
                 TransactionId = dataRow.Field<int>("TransactionID"),
                 TransactionType = TransactionType.Service,
+                AccountNumber = dataRow.Field<int>("AccountNumber"),
+                DestinationAccountNumber = dataRow.Field<int?>("DestinationAccountNumber"),
                 Amount = dataRow.Field<decimal>("Amount"),
                 Comment = dataRow.Field<string?>("Comment"),
                 TransactionTimeUtc = dataRow.Field<DateTime>("TransactionTimeUtc"),

@@ -2,6 +2,7 @@ namespace s3910902_a1.Models;
 
 public interface ITransaction
 {
+    public int TransactionId { get; set; }
     public TransactionType TransactionType { get; set; }
     public int AccountNumber { get; set; }
     public int? DestinationAccountNumber { get; set; }
