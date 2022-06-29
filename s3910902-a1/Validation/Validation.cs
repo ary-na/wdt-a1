@@ -1,6 +1,8 @@
+using Utilities.ExtensionMethods;
+
 namespace s3910902_a1.Utilities;
 
-public static class Validation
+public static class UtilityMethods
 {
     public static bool SelectedAccount(this string selectedAccount)
     {

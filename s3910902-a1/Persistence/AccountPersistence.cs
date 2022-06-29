@@ -2,6 +2,7 @@ using Microsoft.Data.SqlClient;
 using s3910902_a1.Mangers;
 using s3910902_a1.Models;
 using s3910902_a1.Utilities;
+using Utilities.ExtensionMethods;
 
 namespace s3910902_a1.Persistence;
 

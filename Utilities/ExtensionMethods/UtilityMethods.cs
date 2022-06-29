@@ -1,13 +1,13 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 
-namespace s3910902_a1.Utilities;
+namespace Utilities.ExtensionMethods;
 
 // Code sourced and adapted from:
 // Week 3 Tutorial - MiscellaneousExtensionUtilities.cs
 // https://rmit.instructure.com/courses/102750/files/24402824?wrap=1
 
-public static class ExtensionUtilities
+public static class ExtensionMethods
 {
     public static bool IsInRange(this int value, int min, int max) => value >= min && value <= max;
     public static DataTable GetDataTable(this SqlCommand command)

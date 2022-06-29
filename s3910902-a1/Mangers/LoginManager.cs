@@ -1,9 +1,9 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
-using s3910902_a1.DTOs;
 using s3910902_a1.Models;
-using s3910902_a1.Utilities;
 using SimpleHashing;
+using Utilities.DTOs;
+using Utilities.ExtensionMethods;
 
 namespace s3910902_a1.Mangers;
 

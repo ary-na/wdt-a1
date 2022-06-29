@@ -1,4 +1,4 @@
-namespace s3910902_a1.DTOs;
+namespace Utilities.DTOs;
 
 public class TransactionDto
 {
