@@ -1,3 +1,5 @@
+using System.Data.Common;
+using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 using s3910902_a1.Mangers;
 using Utilities.DTOs;
@@ -13,10 +15,7 @@ public static class CustomerWebService
 {
     public static async Task GetAndSaveCustomer(string connectionString)
     {
-        var customerManager = new CustomerManager(connectionString);
         var loginManager = new LoginManager(connectionString);
-        var accountManager = new AccountManager(connectionString);
-        var transactionManager = new TransactionManager(connectionString);
 
         // Login details exist in database condition
         if (loginManager.Logins.Any()) return;
@@ -32,8 +31,7 @@ public static class CustomerWebService
             DateFormatString = "dd/MM/yyyy hh:mm:ss tt"
         });
 
-        await Task.WhenAny(InsertCustomerDto(customerDto, customerManager, loginManager, accountManager,
-            transactionManager));
+        await Task.WhenAny(InsertCustomerDto(connectionString, customerDto));
     }
 
     // Code sourced and adapted from:
@@ -43,28 +41,30 @@ public static class CustomerWebService
     // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/start-multiple-async-tasks-and-process-them-as-they-complete?pivots=dotnet-6-0
     // https://docs.microsoft.com/en-us/archive/msdn-magazine/2013/march/async-await-best-practices-in-asynchronous-programming
 
-    private static async Task InsertCustomerDto(List<CustomerDto>? customerDto, CustomerManager customerManager,
-        LoginManager loginManager, AccountManager accountManager, TransactionManager transactionManager)
+    private static async Task InsertCustomerDto(string connectionString, List<CustomerDto>? customerDto)
     {
+        await using var connection = new SqlConnection(connectionString);
+        await connection.OpenAsync();
+
         foreach (var customer in customerDto)
         {
-            await Task.WhenAny(customerManager.InsertCustomer(customer));
+            await Task.WhenAny(CustomerManager.InsertCustomer(connection, customer));
             customer.Login.CustomerId = customer.CustomerId;
-            await Task.WhenAny(loginManager.InsertLogin(customer.Login));
+            await Task.WhenAny(LoginManager.InsertLogin(connection, customer.Login));
 
             foreach (var account in customer.Accounts)
             {
-                foreach (var transaction in account.Transactions)
+                foreach (var accountTransaction in account.Transactions)
                 {
-                    account.Balance += transaction.Amount;
+                    account.Balance += accountTransaction.Amount;
                 }
 
-                await Task.WhenAny(accountManager.InsertAccount(account));
+                await Task.WhenAny(AccountManager.InsertAccount(connection, account));
 
-                foreach (var transaction in account.Transactions)
+                foreach (var accountTransaction in account.Transactions)
                 {
-                    transaction.AccountNumber = account.AccountNumber;
-                    await Task.WhenAny(transactionManager.InsertTransaction(transaction));
+                    accountTransaction.AccountNumber = account.AccountNumber;
+                    await Task.WhenAny(TransactionManager.InsertTransaction(connection, accountTransaction));
                 }
             }
         }

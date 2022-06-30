@@ -35,11 +35,8 @@ public class CustomerManager
         Customer = command.GetDataTable().Select().Select(CreateCustomer).Single();
     }
 
-    public async Task InsertCustomer(CustomerDto customerDto)
+    public static async Task InsertCustomer(SqlConnection connection, CustomerDto customerDto)
     {
-        await using var connection = new SqlConnection(_connectionString);
-        connection.Open();
-
         await using var command = connection.CreateCommand();
         command.CommandText =
             @"insert into [Customer] (CustomerID, Name, Address, City, PostCode)

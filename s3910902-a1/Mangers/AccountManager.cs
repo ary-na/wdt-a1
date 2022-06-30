@@ -33,11 +33,8 @@ public class AccountManager
         return command.GetDataTable().Select().Select(CreateAccount).ToArray();
     }
 
-    public async Task InsertAccount(AccountDto accountDto)
+    public static async Task InsertAccount(SqlConnection connection, AccountDto accountDto)
     {
-        await using var connection = new SqlConnection(_connectionString);
-        connection.Open();
-
         await using var command = connection.CreateCommand();
         command.CommandText =
             @"insert into [Account] (AccountNumber, AccountType, CustomerID, Balance)

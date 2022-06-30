@@ -29,17 +29,14 @@ public class TransactionManager
         return command.GetDataTable().Select().Select(CreateTransactions).ToList();
     }
 
-    public async Task InsertTransaction(TransactionDto transactionDto)
+    public static async Task InsertTransaction(SqlConnection connection, TransactionDto transactionDto)
     {
-        await using var connection = new SqlConnection(_connectionString);
-        connection.Open();
-
-        await using var command = connection.CreateCommand();
-
         // Code sourced and adapted from:
         // https://social.msdn.microsoft.com/Forums/en-US/9f65826b-7d4d-4877-9630-3008bbb80157/need-help-systemdatasqlclientsqlexception-incorrect-syntax-near-the-keyword-read?forum=adodotnetdataproviders
         // https://stackoverflow.com/questions/4488054/merge-two-or-more-lists-into-one-in-c-sharp-net
-
+        
+        await using var command = connection.CreateCommand();
+        
         command.CommandText =
             @"insert into [Transaction] (TransactionType, AccountNumber, Amount, Comment, TransactionTimeUtc)
             values (@transactionType, @accountNumber, @amount, @comment, @transactionTimeUtc)";

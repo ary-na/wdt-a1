@@ -54,11 +54,8 @@ public class LoginManager
         return Login.PasswordHash != null && passwordHash;
     }
 
-    public async Task InsertLogin(LoginDto loginDto)
+    public static async Task InsertLogin(SqlConnection connection, LoginDto loginDto)
     {
-        await using var connection = new SqlConnection(_connectionString);
-        connection.Open();
-
         await using var command = connection.CreateCommand();
         command.CommandText =
             @"insert into [Login] (LoginID, CustomerID, PasswordHash)
