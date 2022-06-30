@@ -9,12 +9,10 @@ public class Service : AbstractTransaction
     private const decimal TransferFee = 0.10M;
 
     public Service()
-    {
-    }
+    { }
 
     public Service(int accountNumber, decimal amount, string? comment) : base(accountNumber, amount, comment)
-    {
-    }
+    { }
 
     public Service(TransactionType withdrawOrTransfer, int accountNumber)
     {

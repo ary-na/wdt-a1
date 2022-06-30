@@ -6,6 +6,7 @@ public class SavingAccount : AbstractAccount
     {
         if (amount <= 0) return false;
 
+        // Update balance and available balance
         Balance = AccountPersistence.UpdateBalance(AccountNo, amount + Balance);
         AvailableBalance = Balance;
         return true;
@@ -13,8 +14,7 @@ public class SavingAccount : AbstractAccount
 
     public override bool Debit(decimal amount)
     {
-        if (amount <= 0 || Balance - amount <= 0)
-            return false;
+        if (amount <= 0 || Balance - amount <= 0) return false;
 
         Balance = AccountPersistence.UpdateBalance(AccountNo, Balance - amount);
         AvailableBalance = Balance;

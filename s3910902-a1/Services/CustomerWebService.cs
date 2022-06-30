@@ -1,4 +1,3 @@
-using System.Data.Common;
 using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 using s3910902_a1.Mangers;
@@ -24,6 +23,7 @@ public static class CustomerWebService
         using var client = new HttpClient();
         var json = client.GetStringAsync(url).Result;
 
+        // Deserialize
         var customerDto = JsonConvert.DeserializeObject<List<CustomerDto>>(json, new JsonSerializerSettings
         {
             // Code sourced and adapted from:
@@ -31,6 +31,7 @@ public static class CustomerWebService
             DateFormatString = "dd/MM/yyyy hh:mm:ss tt"
         });
 
+        // Insert objects into database
         await Task.WhenAny(InsertCustomerDto(connectionString, customerDto));
     }
 
@@ -46,6 +47,7 @@ public static class CustomerWebService
         await using var connection = new SqlConnection(connectionString);
         await connection.OpenAsync();
 
+        // Insert objects into database
         foreach (var customer in customerDto)
         {
             await Task.WhenAny(CustomerManager.InsertCustomer(connection, customer));

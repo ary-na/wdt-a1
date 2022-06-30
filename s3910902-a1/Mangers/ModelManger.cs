@@ -1,5 +1,4 @@
 using Microsoft.Extensions.Configuration;
-using s3910902_a1.Models;
 using s3910902_a1.Services;
 
 namespace s3910902_a1.Mangers;
@@ -17,7 +16,6 @@ public class ModelManger
 
     public ModelManger()
     {
-        ConnectionString = Configuration.GetConnectionString(nameof(CustomerWebService)) ??
-                           throw new NullReferenceException();
+        ConnectionString = Configuration.GetConnectionString(nameof(CustomerWebService)) ?? throw new NullReferenceException();
     }
 }

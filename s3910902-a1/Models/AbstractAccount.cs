@@ -1,6 +1,3 @@
-using System.Net.Security;
-using System.Transactions;
-using s3910902_a1.Factories;
 using s3910902_a1.Persistence;
 
 namespace s3910902_a1.Models;
@@ -18,9 +15,7 @@ public abstract class AbstractAccount : IAccount
     public int AccountNo { get; set; }
     public AccountType AccountType { get; set; }
     public List<ITransaction>? Transactions { get; set; }
-
     public decimal Balance { get; set; }
-
     public decimal AvailableBalance { get; set; }
 
     protected AbstractAccount()
@@ -34,7 +29,7 @@ public abstract class AbstractAccount : IAccount
 
     // Code sourced and adapted from:
     // https://resharper-support.jetbrains.com/hc/en-us/community/posts/4403185593234
-    
+
     public void AddTransaction(ITransaction transaction)
     {
         // Add transaction 

@@ -10,8 +10,9 @@ public abstract class AbstractTransaction : ITransaction
     public string? Comment { get; set; }
     public DateTime TransactionTimeUtc { get; set; }
 
-    protected AbstractTransaction() 
+    protected AbstractTransaction()
     { }
+
     protected AbstractTransaction(int accountNumber, decimal amount, string? comment)
     {
         AccountNumber = accountNumber;
@@ -19,7 +20,7 @@ public abstract class AbstractTransaction : ITransaction
         Comment = comment;
         TransactionTimeUtc = DateTime.UtcNow;
     }
-    
+
     public void Modifies(IAccount account, decimal amount)
     {
         account.Credit(amount);

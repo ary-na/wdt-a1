@@ -26,7 +26,7 @@ public class TransactionManager
         command.CommandText = "select * from [Transaction] where AccountNumber = @accountNumber";
         command.Parameters.AddWithValue("accountNumber", accountNumber);
 
-        return command.GetDataTable().Select().Select(CreateTransactions).ToList();
+        return command.GetDataTable().Select().Select(CreateTransaction).ToList();
     }
 
     public static async Task InsertTransaction(SqlConnection connection, TransactionDto transactionDto)
@@ -34,9 +34,9 @@ public class TransactionManager
         // Code sourced and adapted from:
         // https://social.msdn.microsoft.com/Forums/en-US/9f65826b-7d4d-4877-9630-3008bbb80157/need-help-systemdatasqlclientsqlexception-incorrect-syntax-near-the-keyword-read?forum=adodotnetdataproviders
         // https://stackoverflow.com/questions/4488054/merge-two-or-more-lists-into-one-in-c-sharp-net
-        
+
         await using var command = connection.CreateCommand();
-        
+
         command.CommandText =
             @"insert into [Transaction] (TransactionType, AccountNumber, Amount, Comment, TransactionTimeUtc)
             values (@transactionType, @accountNumber, @amount, @comment, @transactionTimeUtc)";
@@ -55,7 +55,7 @@ public class TransactionManager
     // Week 3 Lectorial - Factory.cs
     // https://rmit.instructure.com/courses/102750/files/24463725?wrap=1
 
-    private static ITransaction CreateTransactions(DataRow dataRow)
+    private static ITransaction CreateTransaction(DataRow dataRow)
     {
         return dataRow.Field<string>("TransactionType") switch
         {

@@ -8,6 +8,5 @@ public class Customer
     public string? City { get; set; }
     public string? PostCode { get; set; }
     public IAccount[]? Accounts { get; set; }
-    
     public Login? Login { get; set; }
 }

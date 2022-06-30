@@ -36,7 +36,8 @@ public static class LoginMenu
             if (!isValid)
                 Console.WriteLine("Invalid Login ID and/or Password, try again.");
         } while (!isValid);
-        
+
+        // Login 
         if (isValid)
             MainMenu.Run(loginManager);
     }
@@ -64,6 +65,8 @@ public static class LoginMenu
         // Remove enter character
         Console.WriteLine("\b \b");
         password.Length--;
+
+        // Return password
         return password.ToString();
     }
 }

@@ -50,7 +50,7 @@ public class CustomerManager
         command.Parameters.AddWithValue("city", customerDto.City.GetObjectOrDbNull());
         command.Parameters.AddWithValue("postCode", customerDto.PostCode.GetObjectOrDbNull());
 
-         await Task.WhenAny(command.ExecuteNonQueryAsync());
+        await Task.WhenAny(command.ExecuteNonQueryAsync());
     }
 
     private Customer CreateCustomer(DataRow dataRow)

@@ -9,7 +9,7 @@ namespace s3910902_a1.Factories;
 public static class TransactionFactory
 {
     public static ITransaction Create(TransactionType transactionType, int accountNumber, decimal amount,
-        string? comment, int destinationAccountNumber = 0000)
+        string? comment, int? destinationAccountNumber = null)
     {
         return transactionType switch
         {

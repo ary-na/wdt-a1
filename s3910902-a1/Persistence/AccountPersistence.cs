@@ -19,10 +19,10 @@ public class AccountPersistence : IAccountPersistence
     // https://stackoverflow.com/questions/16016023/what-is-the-use-of-a-persistence-layer-in-any-application
     // https://stackoverflow.com/questions/20160928/how-to-count-the-number-of-rows-from-sql-table-in-c
     // https://docs.microsoft.com/en-us/answers/questions/296142/c-mysql-check-if-value-exists-issue.html
-    
+
     public ITransaction InsertTransaction(ITransaction transaction)
     {
-        // Insert trnasaction
+        // Insert transaction
         using var connection = new SqlConnection(ModelManger.ConnectionString);
         connection.Open();
 
@@ -42,8 +42,7 @@ public class AccountPersistence : IAccountPersistence
 
         command.Parameters.AddWithValue("transactionType", transactionType);
         command.Parameters.AddWithValue("accountNumber", transaction.AccountNumber);
-        command.Parameters.AddWithValue("destinationAccountNumber",
-            transaction.DestinationAccountNumber.GetObjectOrDbNull());
+        command.Parameters.AddWithValue("destinationAccountNumber", transaction.DestinationAccountNumber.GetObjectOrDbNull());
         command.Parameters.AddWithValue("amount", transaction.Amount);
         command.Parameters.AddWithValue("comment", transaction.Comment.GetObjectOrDbNull());
         command.Parameters.AddWithValue("transactionTimeUtc", transaction.TransactionTimeUtc);
@@ -56,7 +55,7 @@ public class AccountPersistence : IAccountPersistence
 
     public decimal UpdateBalance(int accountNumber, decimal balance)
     {
-        // Update database
+        // Update balance
         using var connection = new SqlConnection(ModelManger.ConnectionString);
         connection.Open();
 
@@ -67,19 +66,20 @@ public class AccountPersistence : IAccountPersistence
 
         command.ExecuteNonQuery();
 
-        // Return Balance
+        // Return balance
         return balance;
     }
 
     public int CountTransactions(int accountNumber)
     {
-        // Count transactions from database
+        // Count transactions
         using var connection = new SqlConnection(ModelManger.ConnectionString);
         connection.Open();
 
         using var command = connection.CreateCommand();
-        command.CommandText = $@"select count(*) from [Transaction] where AccountNumber = @accountNumber and 
-                                (TransactionType = @transactionTypeWithdraw or TransactionType = @transactionTypeTransfer)";
+        command.CommandText = 
+            $@"select count(*) from [Transaction] where AccountNumber = @accountNumber and 
+            (TransactionType = @transactionTypeWithdraw or TransactionType = @transactionTypeTransfer)";
         command.Parameters.AddWithValue("accountNumber", accountNumber);
         command.Parameters.AddWithValue("transactionTypeWithdraw", "W");
         command.Parameters.AddWithValue("transactionTypeTransfer", "T");
@@ -90,7 +90,7 @@ public class AccountPersistence : IAccountPersistence
 
     public int ValidAccountNumber(int accountNumber)
     {
-        // Select account from database
+        // Count accounts
         using var connection = new SqlConnection(ModelManger.ConnectionString);
         connection.Open();
 
