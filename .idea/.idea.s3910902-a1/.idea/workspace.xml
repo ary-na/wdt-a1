@@ -4,13 +4,9 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update Validation -- code clean up">
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Minor fixes and changes">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +32,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/134622bcf8ad016d3faf7776eb0457b76a5798c537458aa82651ab2cee6e1/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d4f98ebdd878db4fbd98872756eb7be6ad9e468fe5cd6b16385d8c4993109a/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Utilities/ExtensionMethods/UtilityMethods.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Mangers/AccountManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -439,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656572395025</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Minor fixes and changes">
+      <created>1656590664269</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1656590664269</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +464,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Create basic menu" />
     <MESSAGE value="Update basic menu" />
     <MESSAGE value="Create Dto types" />
     <MESSAGE value="Load data from Json" />
@@ -485,6 +488,7 @@
     <MESSAGE value="Update Trello" />
     <MESSAGE value="Asynchronous programming for database operations" />
     <MESSAGE value="Update Validation -- code clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Validation -- code clean up" />
+    <MESSAGE value="Minor fixes and changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes and changes" />
   </component>
 </project>
