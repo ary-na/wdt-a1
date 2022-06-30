@@ -6,7 +6,7 @@ public class SavingAccount : AbstractAccount
     {
         if (amount <= 0) return false;
 
-        Balance = _accountPersistence.UpdateBalance(AccountNo, amount + Balance);
+        Balance = AccountPersistence.UpdateBalance(AccountNo, amount + Balance);
         AvailableBalance = Balance;
         return true;
     }
@@ -16,7 +16,7 @@ public class SavingAccount : AbstractAccount
         if (amount <= 0 || Balance - amount <= 0)
             return false;
 
-        Balance = _accountPersistence.UpdateBalance(AccountNo, Balance - amount);
+        Balance = AccountPersistence.UpdateBalance(AccountNo, Balance - amount);
         AvailableBalance = Balance;
         return true;
     }

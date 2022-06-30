@@ -11,7 +11,7 @@ namespace s3910902_a1.Models;
 
 public abstract class AbstractAccount : IAccount
 {
-    protected readonly IAccountPersistence _accountPersistence;
+    protected readonly IAccountPersistence AccountPersistence;
     private const int FreeTransactionCount = 2;
     protected const decimal MinBalanceChecking = 300M;
     public int CustomerId { get; set; }
@@ -25,7 +25,7 @@ public abstract class AbstractAccount : IAccount
 
     protected AbstractAccount()
     {
-        _accountPersistence = new AccountPersistence();
+        AccountPersistence = new AccountPersistence();
     }
 
     public abstract bool Credit(decimal amount);
@@ -38,16 +38,16 @@ public abstract class AbstractAccount : IAccount
     public void AddTransaction(ITransaction transaction)
     {
         // Add transaction 
-        Transactions?.Add(_accountPersistence.InsertTransaction(transaction));
+        Transactions?.Add(AccountPersistence.InsertTransaction(transaction));
 
         // Add service transaction
-        if (FreeTransactionCount <= _accountPersistence.CountTransactions(transaction.AccountNumber) &&
+        if (FreeTransactionCount <= AccountPersistence.CountTransactions(transaction.AccountNumber) &&
             transaction.TransactionType is TransactionType.Transfer or TransactionType.Withdraw)
         {
             var service = new Service(transaction.TransactionType, transaction.AccountNumber);
-            Transactions?.Add(_accountPersistence.InsertTransaction(service));
-            Balance = _accountPersistence.UpdateBalance(transaction.AccountNumber, Balance - service.Amount);
-            Balance -= service.Amount;
+            Transactions?.Add(AccountPersistence.InsertTransaction(service));
+            Balance = AccountPersistence.UpdateBalance(transaction.AccountNumber, Balance - service.Amount);
+            AvailableBalance -= service.Amount;
         }
 
         if (transaction.TransactionType != TransactionType.Transfer)
@@ -61,6 +61,6 @@ public abstract class AbstractAccount : IAccount
             Amount = transaction.Amount,
             TransactionTimeUtc = DateTime.UtcNow
         };
-        Transactions?.Add(_accountPersistence.InsertTransaction(deposit));
+        Transactions?.Add(AccountPersistence.InsertTransaction(deposit));
     }
 }

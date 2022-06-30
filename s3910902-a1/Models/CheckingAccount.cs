@@ -6,7 +6,7 @@ public class CheckingAccount : AbstractAccount
     {
         if (amount <= 0) return false;
 
-        Balance = _accountPersistence.UpdateBalance(AccountNo, amount + Balance);
+        Balance = AccountPersistence.UpdateBalance(AccountNo, amount + Balance);
         AvailableBalance = Balance < MinBalanceChecking ? 0M : Balance - MinBalanceChecking;
         return true;
     }
@@ -15,7 +15,7 @@ public class CheckingAccount : AbstractAccount
     {
         if (amount <= 0 || Balance - amount < 300M) return false;
 
-        Balance = _accountPersistence.UpdateBalance(AccountNo, Balance - amount);
+        Balance = AccountPersistence.UpdateBalance(AccountNo, Balance - amount);
         AvailableBalance = Balance < MinBalanceChecking ? 0M : Balance - MinBalanceChecking;
         return true;
     }

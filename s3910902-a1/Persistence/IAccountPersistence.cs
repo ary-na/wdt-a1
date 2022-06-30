@@ -11,4 +11,5 @@ public interface IAccountPersistence
     public ITransaction InsertTransaction(ITransaction transaction);
     public decimal UpdateBalance(int accountNumber, decimal balance);
     public int CountTransactions(int accountNumber);
+    public int ValidAccountNumber(int accountNumber);
 }

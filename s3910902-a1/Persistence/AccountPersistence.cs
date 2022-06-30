@@ -1,7 +1,6 @@
 using Microsoft.Data.SqlClient;
 using s3910902_a1.Mangers;
 using s3910902_a1.Models;
-using s3910902_a1.Utilities;
 using Utilities.ExtensionMethods;
 
 namespace s3910902_a1.Persistence;
@@ -19,7 +18,8 @@ public class AccountPersistence : IAccountPersistence
     // https://docs.microsoft.com/en-us/azure/mysql/flexible-server/connect-csharp
     // https://stackoverflow.com/questions/16016023/what-is-the-use-of-a-persistence-layer-in-any-application
     // https://stackoverflow.com/questions/20160928/how-to-count-the-number-of-rows-from-sql-table-in-c
-
+    // https://docs.microsoft.com/en-us/answers/questions/296142/c-mysql-check-if-value-exists-issue.html
+    
     public ITransaction InsertTransaction(ITransaction transaction)
     {
         // Insert trnasaction
@@ -42,7 +42,8 @@ public class AccountPersistence : IAccountPersistence
 
         command.Parameters.AddWithValue("transactionType", transactionType);
         command.Parameters.AddWithValue("accountNumber", transaction.AccountNumber);
-        command.Parameters.AddWithValue("destinationAccountNumber", transaction.DestinationAccountNumber.GetObjectOrDbNull());
+        command.Parameters.AddWithValue("destinationAccountNumber",
+            transaction.DestinationAccountNumber.GetObjectOrDbNull());
         command.Parameters.AddWithValue("amount", transaction.Amount);
         command.Parameters.AddWithValue("comment", transaction.Comment.GetObjectOrDbNull());
         command.Parameters.AddWithValue("transactionTimeUtc", transaction.TransactionTimeUtc);
@@ -84,6 +85,20 @@ public class AccountPersistence : IAccountPersistence
         command.Parameters.AddWithValue("transactionTypeTransfer", "T");
 
         // Return transaction count
-        return (int) command.ExecuteScalar();
+        return (int)command.ExecuteScalar();
+    }
+
+    public int ValidAccountNumber(int accountNumber)
+    {
+        // Select account from database
+        using var connection = new SqlConnection(ModelManger.ConnectionString);
+        connection.Open();
+
+        using var command = connection.CreateCommand();
+        command.CommandText = $"select count(*) from [Account] where AccountNumber = @accountNumber";
+        command.Parameters.AddWithValue("accountNumber", accountNumber);
+
+        // Return account count
+        return (int)command.ExecuteScalar();
     }
 }

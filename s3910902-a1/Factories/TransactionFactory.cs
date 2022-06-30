@@ -9,7 +9,7 @@ namespace s3910902_a1.Factories;
 public static class TransactionFactory
 {
     public static ITransaction Create(TransactionType transactionType, int accountNumber, decimal amount,
-        string? comment)
+        string? comment, int destinationAccountNumber = 0000)
     {
         return transactionType switch
         {
@@ -21,9 +21,16 @@ public static class TransactionFactory
             },
             TransactionType.Withdraw => new Withdraw
             {
+                AccountNumber = accountNumber,
+                Amount = amount,
+                Comment = comment
             },
             TransactionType.Transfer => new Transfer
             {
+                AccountNumber = accountNumber,
+                Amount = amount,
+                DestinationAccountNumber = destinationAccountNumber,
+                Comment = comment
             },
             TransactionType.Service => new Service(),
             _ => throw new NotSupportedException("Invalid transaction type.")

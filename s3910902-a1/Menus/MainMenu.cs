@@ -1,8 +1,7 @@
-using System.Transactions;
 using s3910902_a1.Factories;
 using s3910902_a1.Mangers;
 using s3910902_a1.Models;
-using s3910902_a1.Utilities;
+using s3910902_a1.Validation;
 using Utilities.ExtensionMethods;
 
 namespace s3910902_a1.Menus;
@@ -92,11 +91,12 @@ public static class MainMenu
 
     private static void PrintAccounts(string transactionType)
     {
-        var Accounts = _customerManager?.Customer?.Accounts;
+        var accounts = _customerManager?.Customer?.Accounts;
         Console.WriteLine($"\n--- {transactionType} ---\n");
 
-        for (var i = 0; i < Accounts?.Length; i++)
-            Console.WriteLine($"{i+1}. {Accounts?[i].AccountType,-20}{Accounts?[i].AccountNo,-20}{Accounts?[i].Balance,-20:C}");
+        for (var i = 0; i < accounts?.Length; i++)
+            Console.WriteLine(
+                $"{i + 1}. {accounts?[i].AccountType,-20}{accounts?[i].AccountNo,-20}{accounts?[i].Balance,-20:C}");
     }
 
     // Code sourced and adapted from:
@@ -112,149 +112,111 @@ public static class MainMenu
     // Menu methods
     private static void Deposit()
     {
-        PrintAccounts("Deposit");
+        PrintAccounts(nameof(Deposit));
+
+        // Read and validate inputs
         var selectedAccountInput = "\nSelect an account: ".ReadInput();
-
-        if (!selectedAccountInput.SelectedAccount())
+        if (!selectedAccountInput.IsValidAccount())
             return;
 
-        var selectedAccount = int.Parse(selectedAccountInput) is 1
-            ? _customerManager.Customer.Accounts[0]
-            : _customerManager.Customer.Accounts[1];
-        Console.WriteLine(
-            $"\n{selectedAccount.AccountType} {selectedAccount.AccountNo} Balance: {selectedAccount.Balance:C} " +
-            $"Available Balance: {selectedAccount.AvailableBalance:C}");
+        var selectedAccount = int.Parse(selectedAccountInput) is 1 ? _customerManager.Customer.Accounts[0] : _customerManager.Customer.Accounts[1];
+        Console.WriteLine($"\n{selectedAccount.AccountType} {selectedAccount.AccountNo} Balance: {selectedAccount.Balance:C} " +
+                          $"Available Balance: {selectedAccount.AvailableBalance:C}");
 
-        if (decimal.TryParse("Enter amount: ".ReadInput(), out var amount) && amount <= 0)
-        {
-            "Amount cannot be negative.".ConsoleColorRed();
+        var enteredAmount = "\nEnter amount: ".ReadInput();
+        if (!enteredAmount.IsValidAmount())
             return;
-        }
-
+        
         var comment = "Enter comment (n to quit, max length 30): ".ReadInput();
-        if (string.IsNullOrWhiteSpace(comment) || comment.Equals("n"))
-            comment = null;
+        if (!comment.IsValidComment())
+            return;
+        comment = comment.IsNullComment() ? null : comment;
 
-        var deposit = TransactionFactory.Create(TransactionType.Deposit, selectedAccount.AccountNo, amount, comment);
-        selectedAccount.Credit(amount);
+        // Create deposit
+        var deposit = TransactionFactory.Create(TransactionType.Deposit, selectedAccount.AccountNo, decimal.Parse(enteredAmount), comment);
+        
+        // Add deposit transaction
+        selectedAccount.Credit(deposit.Amount);
         selectedAccount.AddTransaction(deposit);
 
-        Console.WriteLine($"Deposit of {amount:C} successful, account balance is now {selectedAccount.Balance:C}");
-        Console.WriteLine();
+        Console.WriteLine($"\nDeposit of {deposit.Amount:C} successful, account balance is now {selectedAccount.Balance:C}\n");
     }
 
     private static void Withdraw()
     {
-        Console.WriteLine();
-        var accountCounter = 1;
-        Console.WriteLine("--- Withdraw ---");
-        Console.WriteLine();
-
-        foreach (var account in _customerManager.Customer.Accounts)
-        {
-            Console.WriteLine(
-                $"{accountCounter}. {account.AccountType,-15}{account.AccountNo,-15}{account.Balance,-15:C}");
-            accountCounter++;
-        }
-
-        Console.WriteLine();
-        if (!int.TryParse("Select an account: ".ReadInput(), out var input) || !input.IsInRange(1, 2))
-        {
-            "Invalid input".ConsoleColorRed();
+        PrintAccounts(nameof(Withdraw));
+        
+        // Read and validate inputs
+        var selectedAccountInput = "\nSelect an account: ".ReadInput();
+        if (!selectedAccountInput.IsValidAccount())
             return;
-        }
+       
+        var selectedAccount = int.Parse(selectedAccountInput) is 1 ? _customerManager.Customer.Accounts[0] : _customerManager.Customer.Accounts[1];
+        Console.WriteLine($"\n{selectedAccount.AccountType} {selectedAccount.AccountNo} Balance: {selectedAccount.Balance:C} " +
+                          $"Available Balance: {selectedAccount.AvailableBalance:C}");
 
-        var selectedAccount =
-            input is 1 ? _customerManager.Customer.Accounts[0] : _customerManager.Customer.Accounts[1];
-        Console.WriteLine();
-        Console.WriteLine(
-            $"{selectedAccount.AccountType} " +
-            $"{selectedAccount.AccountNo} " +
-            $"Balance: {selectedAccount.Balance:C} " +
-            $"Available Balance: {selectedAccount.AvailableBalance:C}");
-
-        if (decimal.TryParse("Enter amount: ".ReadInput(), out var amount) && amount <= 0)
-        {
-            "Amount cannot be negative.".ConsoleColorRed();
+        var enteredAmount = "\nEnter amount: ".ReadInput();
+        if (!enteredAmount.IsValidAmount())
             return;
-        }
-
+        
         var comment = "Enter comment (n to quit, max length 30): ".ReadInput();
-        if (string.IsNullOrWhiteSpace(comment) || comment.Equals("n"))
-            comment = null;
+        if (!comment.IsValidComment())
+            return;
+        comment = comment.IsNullComment() ? null : comment;
 
-        var withdraw = new Withdraw(selectedAccount.AccountNo, amount, comment);
+        // Create withdraw
+        var withdraw = TransactionFactory.Create(TransactionType.Withdraw, selectedAccount.AccountNo, decimal.Parse(enteredAmount), comment);
 
-        if (!selectedAccount.Debit(amount))
+        // Add withdraw transaction
+        if (!selectedAccount.Debit(withdraw.Amount))
         {
             "Transaction failed.".ConsoleColorRed();
             return;
         }
-
         selectedAccount.AddTransaction(withdraw);
 
-        Console.WriteLine($"Withdraw of {amount:C} successful, account balance is now {selectedAccount.Balance:C}");
-        Console.WriteLine();
+        Console.WriteLine($"\nWithdraw of {withdraw.Amount:C} successful, account balance is now {selectedAccount.Balance:C}\n");
     }
 
     private static void Transfer()
     {
-        Console.WriteLine();
-        var accountCounter = 1;
-        Console.WriteLine("--- Transfer ---");
-        Console.WriteLine();
-
-        foreach (var account in _customerManager.Customer.Accounts)
-        {
-            Console.WriteLine(
-                $"{accountCounter}. {account.AccountType,-15}{account.AccountNo,-15}{account.Balance,-15:C}");
-            accountCounter++;
-        }
-
-        Console.WriteLine();
-        if (!int.TryParse("Select an account: ".ReadInput(), out var input) || !input.IsInRange(1, 2))
-        {
-            "Invalid input".ConsoleColorRed();
+        PrintAccounts(nameof(Transfer));
+        
+        // Read and validate inputs
+        var selectedAccountInput = "\nSelect an account: ".ReadInput();
+        if (!selectedAccountInput.IsValidAccount())
             return;
-        }
-
-        if (!int.TryParse("Enter destination account number: ".ReadInput(), out var destinationAccountNumber))
-        {
-            "Invalid input".ConsoleColorRed();
+        
+        var selectedAccount = int.Parse(selectedAccountInput) is 1 ? _customerManager.Customer.Accounts[0] : _customerManager.Customer.Accounts[1];
+        
+        var enteredDestinationAccount = "\nEnter destination account number: ".ReadInput();
+        if (!enteredDestinationAccount.IsValidDestinationAccount(selectedAccount.AccountNo))
             return;
-        }
+        
+        Console.WriteLine($"\n{selectedAccount.AccountType} {selectedAccount.AccountNo} Balance: {selectedAccount.Balance:C} " +
+                          $"Available Balance: {selectedAccount.AvailableBalance:C}");
 
-        var selectedAccount =
-            input is 1 ? _customerManager.Customer.Accounts[0] : _customerManager.Customer.Accounts[1];
-        Console.WriteLine();
-        Console.WriteLine(
-            $"{selectedAccount.AccountType} " +
-            $"{selectedAccount.AccountNo} " +
-            $"Balance: {selectedAccount.Balance:C} " +
-            $"Available Balance: {selectedAccount.AvailableBalance:C}");
-
-        if (decimal.TryParse("Enter amount: ".ReadInput(), out var amount) && amount <= 0)
-        {
-            "Amount cannot be negative.".ConsoleColorRed();
+        var enteredAmount = "\nEnter amount: ".ReadInput();
+        if (!enteredAmount.IsValidAmount())
             return;
-        }
-
+        
         var comment = "Enter comment (n to quit, max length 30): ".ReadInput();
-        if (string.IsNullOrWhiteSpace(comment) || comment.Equals("n"))
-            comment = null;
+        if (!comment.IsValidComment())
+            return;
+        comment = comment.IsNullComment() ? null : comment;
+        
+        // Create transfer
+        var transfer = TransactionFactory.Create(TransactionType.Transfer, selectedAccount.AccountNo, decimal.Parse(enteredAmount), comment, int.Parse(enteredDestinationAccount));
 
-        var transfer = new Transfer(selectedAccount.AccountNo, destinationAccountNumber, amount, comment);
-
-        if (!selectedAccount.Debit(amount))
+        // Add transfer transaction
+        if (!selectedAccount.Debit(transfer.Amount))
         {
             "Transaction failed.".ConsoleColorRed();
             return;
         }
-
         selectedAccount.AddTransaction(transfer);
 
-        Console.WriteLine($"Transfer of {amount:C} successful, account balance is now {selectedAccount.Balance:C}");
-        Console.WriteLine();
+        Console.WriteLine($"\nTransfer of {transfer.Amount:C} successful, account balance is now {selectedAccount.Balance:C}\n");
     }
 
     // Code sourced and adapted from:
