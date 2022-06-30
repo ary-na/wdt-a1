@@ -33,12 +33,12 @@ public class AccountManager
         return command.GetDataTable().Select().Select(CreateAccount).ToArray();
     }
 
-    public void InsertAccount(AccountDto accountDto)
+    public async Task InsertAccount(AccountDto accountDto)
     {
-        using var connection = new SqlConnection(_connectionString);
+        await using var connection = new SqlConnection(_connectionString);
         connection.Open();
 
-        using var command = connection.CreateCommand();
+        await using var command = connection.CreateCommand();
         command.CommandText =
             @"insert into [Account] (AccountNumber, AccountType, CustomerID, Balance)
             values (@accountNumber, @accountType, @customerId, @balance)";
@@ -48,7 +48,7 @@ public class AccountManager
         command.Parameters.AddWithValue("customerId", accountDto.CustomerId);
         command.Parameters.AddWithValue("balance", accountDto.Balance);
 
-        command.ExecuteNonQuery();
+        await Task.WhenAny(command.ExecuteNonQueryAsync());
     }
 
     // Code sourced and adapted from:

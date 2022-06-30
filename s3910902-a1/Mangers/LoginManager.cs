@@ -54,12 +54,12 @@ public class LoginManager
         return Login.PasswordHash != null && passwordHash;
     }
 
-    public void InsertLogin(LoginDto loginDto)
+    public async Task InsertLogin(LoginDto loginDto)
     {
-        using var connection = new SqlConnection(_connectionString);
+        await using var connection = new SqlConnection(_connectionString);
         connection.Open();
 
-        using var command = connection.CreateCommand();
+        await using var command = connection.CreateCommand();
         command.CommandText =
             @"insert into [Login] (LoginID, CustomerID, PasswordHash)
             values (@loginId, @customerId, @passwordHash)";
@@ -68,7 +68,7 @@ public class LoginManager
         command.Parameters.AddWithValue("customerId", loginDto.CustomerId);
         command.Parameters.AddWithValue("passwordHash", loginDto.PasswordHash);
 
-        command.ExecuteNonQuery();
+        await Task.WhenAny(command.ExecuteNonQueryAsync());
     }
 
     private static Login CreateLogin(DataRow dataRow)

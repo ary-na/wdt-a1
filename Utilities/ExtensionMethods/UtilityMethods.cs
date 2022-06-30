@@ -10,6 +10,7 @@ namespace Utilities.ExtensionMethods;
 public static class ExtensionMethods
 {
     public static bool IsInRange(this int value, int min, int max) => value >= min && value <= max;
+
     public static DataTable GetDataTable(this SqlCommand command)
     {
         using var adapter = new SqlDataAdapter(command);
@@ -19,19 +20,19 @@ public static class ExtensionMethods
 
         return table;
     }
-    
+
     public static object GetObjectOrDbNull(this object value) => value ?? DBNull.Value;
-    
+
     // Read user input as character
     public static ConsoleKeyInfo ReadInput() => Console.ReadKey(true);
-    
+
     // Read user input as string
     public static string ReadInput(this string output)
     {
         Console.Write(output);
         return Console.ReadLine();
     }
-    
+
     // Change console foreground color
     public static void ConsoleColorRed(this string input)
     {
@@ -39,7 +40,7 @@ public static class ExtensionMethods
         Console.WriteLine(input);
         Console.ResetColor();
     }
-    
+
     public static void ConsoleColorGreen(this string input)
     {
         Console.ForegroundColor = ConsoleColor.Green;

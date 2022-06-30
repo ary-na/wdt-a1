@@ -35,12 +35,12 @@ public class CustomerManager
         Customer = command.GetDataTable().Select().Select(CreateCustomer).Single();
     }
 
-    public void InsertCustomer(CustomerDto customerDto)
+    public async Task InsertCustomer(CustomerDto customerDto)
     {
-        using var connection = new SqlConnection(_connectionString);
+        await using var connection = new SqlConnection(_connectionString);
         connection.Open();
 
-        using var command = connection.CreateCommand();
+        await using var command = connection.CreateCommand();
         command.CommandText =
             @"insert into [Customer] (CustomerID, Name, Address, City, PostCode)
             values (@customerId, @name, @address, @city, @postCode)";
@@ -53,7 +53,7 @@ public class CustomerManager
         command.Parameters.AddWithValue("city", customerDto.City.GetObjectOrDbNull());
         command.Parameters.AddWithValue("postCode", customerDto.PostCode.GetObjectOrDbNull());
 
-        command.ExecuteNonQuery();
+         await Task.WhenAny(command.ExecuteNonQueryAsync());
     }
 
     private Customer CreateCustomer(DataRow dataRow)

@@ -29,13 +29,13 @@ public class TransactionManager
         return command.GetDataTable().Select().Select(CreateTransactions).ToList();
     }
 
-    public void InsertTransaction(TransactionDto transactionDto)
+    public async Task InsertTransaction(TransactionDto transactionDto)
     {
-        using var connection = new SqlConnection(_connectionString);
+        await using var connection = new SqlConnection(_connectionString);
         connection.Open();
 
-        using var command = connection.CreateCommand();
-        
+        await using var command = connection.CreateCommand();
+
         // Code sourced and adapted from:
         // https://social.msdn.microsoft.com/Forums/en-US/9f65826b-7d4d-4877-9630-3008bbb80157/need-help-systemdatasqlclientsqlexception-incorrect-syntax-near-the-keyword-read?forum=adodotnetdataproviders
         // https://stackoverflow.com/questions/4488054/merge-two-or-more-lists-into-one-in-c-sharp-net
@@ -50,14 +50,14 @@ public class TransactionManager
         command.Parameters.AddWithValue("comment", transactionDto.Comment.GetObjectOrDbNull());
         command.Parameters.AddWithValue("transactionTimeUtc", transactionDto.TransactionTimeUtc);
 
-        command.ExecuteNonQuery();
+        await Task.WhenAny(command.ExecuteNonQueryAsync());
     }
 
     // Code sourced and adapted from:
     // Week 3 Lectorial - SwitchExpressions.cs
     // Week 3 Lectorial - Factory.cs
     // https://rmit.instructure.com/courses/102750/files/24463725?wrap=1
-    
+
     private static ITransaction CreateTransactions(DataRow dataRow)
     {
         return dataRow.Field<string>("TransactionType") switch

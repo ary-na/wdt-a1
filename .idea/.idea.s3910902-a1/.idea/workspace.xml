@@ -4,7 +4,18 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Fixed the issue where My Statements threw null reference exception -- Added Validation.cs" />
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update Trello">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utilities/ExtensionMethods/UtilityMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/ExtensionMethods/UtilityMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/AccountManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/LoginManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Persistence/AccountPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Persistence/AccountPersistence.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Services/CustomerWebService.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="essential-requirement-class-library" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
@@ -403,7 +414,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656543904660</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Update workspace.xml">
+      <created>1656544401292</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1656544401292</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Update Trello">
+      <created>1656545040559</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1656545040559</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,11 +469,11 @@
     <MESSAGE value="Minor changes and fixes -- Update logout and CustomerWebService.cs" />
     <MESSAGE value="Update Model -- implemented Debit" />
     <MESSAGE value="Code clean up" />
-    <MESSAGE value="Update workspace.xml" />
     <MESSAGE value="Implemented My Statements feature" />
     <MESSAGE value="Fixed the issue where My Statements threw null reference exception -- Added Validation.cs" />
-    <MESSAGE value="Update Trello" />
     <MESSAGE value="Create Utilities class library" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Utilities class library" />
+    <MESSAGE value="Update workspace.xml" />
+    <MESSAGE value="Update Trello" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Trello" />
   </component>
 </project>

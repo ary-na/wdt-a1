@@ -11,10 +11,10 @@ namespace s3910902_a1;
 // Most Common Bank of Australia console application
 public static class Program
 {
-    private static void Main()
+    private static async Task Main()
     {
         var model = new ModelManger();
-        CustomerWebService.GetAndSaveCustomer(model.ConnectionString);
+        await Task.WhenAny(CustomerWebService.GetAndSaveCustomer(model.ConnectionString));
         LoginMenu.Run(model);
     }
 }

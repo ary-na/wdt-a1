@@ -84,6 +84,6 @@ public class AccountPersistence : IAccountPersistence
         command.Parameters.AddWithValue("transactionTypeTransfer", "T");
 
         // Return transaction count
-        return (int)command.ExecuteScalar();
+        return (int) command.ExecuteScalar();
     }
 }
