@@ -4,13 +4,7 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update README.md">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/AbstractAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/AbstractAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Persistence/AccountPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Persistence/AccountPersistence.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Validation/Validation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Validation/Validation.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update README.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +34,9 @@
     <setting file="file://$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/AbstractAccount.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/AbstractAccount.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/AbstractAccount.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Persistence/AccountPersistence.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Validation/Validation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/s3910902-a1/Validation/Validation.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -117,20 +114,6 @@
       <workItem from="1656451548070" duration="12597000" />
       <workItem from="1656532349214" duration="8456000" />
       <workItem from="1656624006963" duration="3324000" />
-    </task>
-    <task id="LOCAL-00007" summary="Update README.md">
-      <created>1655350378908</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1655350378908</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Minor changes">
-      <created>1655350414274</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1655350414275</updated>
     </task>
     <task id="LOCAL-00009" summary="Create basic menu">
       <created>1655416834294</created>
@@ -461,7 +444,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656651597684</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Fixed the issue where transfer type for incoming transactions were incorrect">
+      <created>1656664723128</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1656664723128</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Update README.md">
+      <created>1656664738686</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1656664738686</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +479,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Create Managers for DTOs" />
     <MESSAGE value="Insert loaded data into database" />
     <MESSAGE value="Fixed the issue where inserting transactions into the database generated unhandled SQLException" />
     <MESSAGE value="Update comments and code clean up" />
@@ -506,6 +502,7 @@
     <MESSAGE value="Minor changes to the code -- code clean up" />
     <MESSAGE value="Fixes the issue where balance updated twice" />
     <MESSAGE value="Update Trello" />
+    <MESSAGE value="Fixed the issue where transfer type for incoming transactions were incorrect" />
     <MESSAGE value="Update README.md" />
     <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
