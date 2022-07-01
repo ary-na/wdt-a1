@@ -20,6 +20,7 @@ public class AccountPersistence : IAccountPersistence
     // https://stackoverflow.com/questions/16016023/what-is-the-use-of-a-persistence-layer-in-any-application
     // https://stackoverflow.com/questions/20160928/how-to-count-the-number-of-rows-from-sql-table-in-c
     // https://docs.microsoft.com/en-us/answers/questions/296142/c-mysql-check-if-value-exists-issue.html
+    // https://www.w3schools.com/sql/sql_ref_is_not_null.asp
 
     public ITransaction InsertTransaction(ITransaction transaction)
     {
@@ -96,7 +97,7 @@ public class AccountPersistence : IAccountPersistence
         using var command = connection.CreateCommand();
         command.CommandText = 
             $@"select count(*) from [Transaction] where AccountNumber = @accountNumber and 
-            (TransactionType = @transactionTypeWithdraw or TransactionType = @transactionTypeTransfer)";
+            (TransactionType = @transactionTypeTransfer and DestinationAccountNumber is not null) or TransactionType = @transactionTypeWithdraw";
         command.Parameters.AddWithValue("accountNumber", accountNumber);
         command.Parameters.AddWithValue("transactionTypeWithdraw", "W");
         command.Parameters.AddWithValue("transactionTypeTransfer", "T");

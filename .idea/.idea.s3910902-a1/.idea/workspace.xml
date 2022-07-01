@@ -4,16 +4,12 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Minor changes to the code -- code clean up">
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Update README.md">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/AbstractAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/AbstractAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/CheckingAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/CheckingAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/SavingAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/SavingAccount.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3910902-a1/Persistence/AccountPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Persistence/AccountPersistence.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3910902-a1/Persistence/IAccountPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Persistence/IAccountPersistence.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Validation/Validation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Validation/Validation.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +39,7 @@
     <setting file="file://$PROJECT_DIR$/s3910902-a1/Mangers/CustomerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/s3910902-a1/Mangers/TransactionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/AbstractAccount.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ariannajafi/RiderProjects/s3910902-a1/s3910902-a1/Models/AbstractAccount.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/s3910902-a1/Validation/Validation.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -56,20 +53,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;azure&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "azure"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="s3910902-a1" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -119,48 +117,6 @@
       <workItem from="1656451548070" duration="12597000" />
       <workItem from="1656532349214" duration="8456000" />
       <workItem from="1656624006963" duration="3324000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial Commit">
-      <created>1654221165000</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1654221165000</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Initial Commit">
-      <created>1654221612291</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1654221612291</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Update README.md">
-      <created>1654911782645</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1654911782645</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added Trello Directory">
-      <created>1654911904098</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1654911904098</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Update .gitignore">
-      <created>1654911967110</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1654911967110</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Create Model and Basic Menu">
-      <created>1654936470822</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1654936470822</updated>
     </task>
     <task id="LOCAL-00007" summary="Update README.md">
       <created>1655350378908</created>
@@ -463,7 +419,49 @@
       <option name="project" value="LOCAL" />
       <updated>1656626842280</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Fixes the issue where balance updated twice">
+      <created>1656635146473</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1656635146473</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Update README.md">
+      <created>1656637545838</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1656637545838</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Update Trello">
+      <created>1656637746253</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1656637746253</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Update README.md">
+      <created>1656642928145</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1656642928146</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Update README.md">
+      <created>1656647222391</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1656647222391</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Update README.md">
+      <created>1656651597684</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1656651597684</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,8 +482,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Load data from Json" />
-    <MESSAGE value="Update .gitignore" />
     <MESSAGE value="Create Managers for DTOs" />
     <MESSAGE value="Insert loaded data into database" />
     <MESSAGE value="Fixed the issue where inserting transactions into the database generated unhandled SQLException" />
@@ -503,12 +499,14 @@
     <MESSAGE value="Fixed the issue where My Statements threw null reference exception -- Added Validation.cs" />
     <MESSAGE value="Create Utilities class library" />
     <MESSAGE value="Update workspace.xml" />
-    <MESSAGE value="Update Trello" />
     <MESSAGE value="Asynchronous programming for database operations" />
     <MESSAGE value="Update Validation -- code clean up" />
     <MESSAGE value="Minor fixes and changes" />
     <MESSAGE value="More code clean up" />
     <MESSAGE value="Minor changes to the code -- code clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor changes to the code -- code clean up" />
+    <MESSAGE value="Fixes the issue where balance updated twice" />
+    <MESSAGE value="Update Trello" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
 </project>

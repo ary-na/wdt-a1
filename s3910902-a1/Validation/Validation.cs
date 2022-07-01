@@ -3,7 +3,7 @@ using Utilities.ExtensionMethods;
 
 namespace s3910902_a1.Validation;
 
-public static class UtilityMethods
+public static class Validation
 {
     private static readonly IAccountPersistence AccountPersistence = new AccountPersistence();
 

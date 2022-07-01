@@ -51,15 +51,15 @@ public abstract class AbstractAccount : IAccount
             return;
 
         // Add incoming transfer transaction
-        var deposit = new Deposit
+        var transferIncoming = new Transfer
         {
-            TransactionType = TransactionType.Deposit,
+            TransactionType = TransactionType.Transfer,
             AccountNumber = transaction.DestinationAccountNumber ?? throw new NullReferenceException(),
             Amount = transaction.Amount,
             TransactionTimeUtc = DateTime.UtcNow
         };
-        Transactions?.Add(AccountPersistence.InsertTransaction(deposit));
-        AccountPersistence.UpdateBalance(deposit.AccountNumber,
-            deposit.Amount + AccountPersistence.GetBalance(deposit.AccountNumber));
+        Transactions?.Add(AccountPersistence.InsertTransaction(transferIncoming));
+        AccountPersistence.UpdateBalance(transferIncoming.AccountNumber,
+            transferIncoming.Amount + AccountPersistence.GetBalance(transferIncoming.AccountNumber));
     }
 }
