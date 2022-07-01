@@ -23,6 +23,8 @@ public abstract class AbstractAccount : IAccount
         AccountPersistence = new AccountPersistence();
     }
 
+    public abstract bool UpdateBalance(decimal amount);
+    
     public abstract bool Credit(decimal amount);
 
     public abstract bool Debit(decimal amount);
@@ -36,7 +38,7 @@ public abstract class AbstractAccount : IAccount
         Transactions?.Add(AccountPersistence.InsertTransaction(transaction));
 
         // Add service transaction
-        if (FreeTransactionCount <= AccountPersistence.CountTransactions(transaction.AccountNumber) &&
+        if (FreeTransactionCount < AccountPersistence.CountTransactions(transaction.AccountNumber) &&
             transaction.TransactionType is TransactionType.Transfer or TransactionType.Withdraw)
         {
             var service = new Service(transaction.TransactionType, transaction.AccountNumber);
@@ -57,5 +59,7 @@ public abstract class AbstractAccount : IAccount
             TransactionTimeUtc = DateTime.UtcNow
         };
         Transactions?.Add(AccountPersistence.InsertTransaction(deposit));
+        AccountPersistence.UpdateBalance(deposit.AccountNumber,
+            deposit.Amount + AccountPersistence.GetBalance(deposit.AccountNumber));
     }
 }

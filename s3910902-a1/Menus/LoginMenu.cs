@@ -20,14 +20,14 @@ public static class LoginMenu
         bool isValid;
         do
         {
-            // Console.Write("Enter Login ID: ");
-            // var loginId = Console.ReadLine();
+            Console.Write("Enter Login ID: ");
+            var loginId = Console.ReadLine();
 
-            var loginId = "12345678";
-            var password = "abc123";
+            // var loginId = "12345678";
+            // var password = "abc123";
 
-            // Console.Write("Enter Password: ");
-            // var password = ReadPassword();
+            Console.Write("Enter Password: ");
+            var password = ReadPassword();
 
             isValid = loginManager.VerifyLogin(loginId?.Trim(), password.Trim());
 

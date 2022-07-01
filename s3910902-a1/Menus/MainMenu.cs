@@ -172,6 +172,14 @@ public static class MainMenu
             "Transaction failed.".ConsoleColorRed();
             return;
         }
+
+        // Update balance
+        if (int.Parse(selectedAccountInput) == 2 && _customerManager.Customer.Accounts.Length > 1)
+            _customerManager.Customer.Accounts[0].UpdateBalance(transfer.Amount);
+
+        if (int.Parse(selectedAccountInput) == 1 && _customerManager.Customer.Accounts.Length > 1)
+            _customerManager.Customer.Accounts[1].UpdateBalance(transfer.Amount);
+
         selectedAccount.AddTransaction(transfer);
 
         Console.WriteLine($"\nTransfer of {transfer.Amount:C} successful, account balance is now {selectedAccount.Balance:C}\n");
@@ -206,7 +214,7 @@ public static class MainMenu
 
     // Code sourced and adapted from:
     // https://docs.microsoft.com/en-us/dotnet/api/system.console.clear?view=net-6.0
-    
+
     // Menu method Logout
     private static void Logout()
     {
@@ -258,7 +266,8 @@ public static class MainMenu
         Console.WriteLine($"\n--- {transactionType} ---\n");
 
         for (var i = 0; i < accounts?.Length; i++)
-            Console.WriteLine($"{i + 1}. {accounts?[i].AccountType,-20}{accounts?[i].AccountNo,-20}{accounts?[i].Balance,-20:C}");
+            Console.WriteLine(
+                $"{i + 1}. {accounts?[i].AccountType,-20}{accounts?[i].AccountNo,-20}{accounts?[i].Balance,-20:C}");
     }
 
     // Process statements as pages

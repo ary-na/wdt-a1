@@ -4,7 +4,17 @@
     <projectFile>s3910902-a1/s3910902-a1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Minor changes to the code -- code clean up" />
+    <list default="true" id="8876bf8c-5732-4fe4-819a-7f6d543c0789" name="Changes" comment="Minor changes to the code -- code clean up">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.s3910902-a1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/LoginMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Menus/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/AbstractAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/AbstractAccount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/CheckingAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/CheckingAccount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/IAccount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Models/SavingAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Models/SavingAccount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Persistence/AccountPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Persistence/AccountPersistence.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s3910902-a1/Persistence/IAccountPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/s3910902-a1/Persistence/IAccountPersistence.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -8,6 +8,7 @@ public interface IAccount
     public decimal Balance { get; }
     public decimal AvailableBalance { get; set; }
     public List<ITransaction>? Transactions { get; set; }
+    public bool UpdateBalance(decimal amount);
     public bool Credit(decimal amount);
     public bool Debit(decimal amount);
     public void AddTransaction(ITransaction transaction);

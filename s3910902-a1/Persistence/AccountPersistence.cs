@@ -1,3 +1,4 @@
+using System.Data;
 using Microsoft.Data.SqlClient;
 using s3910902_a1.Mangers;
 using s3910902_a1.Models;
@@ -68,6 +69,22 @@ public class AccountPersistence : IAccountPersistence
 
         // Return balance
         return balance;
+    }
+
+    public decimal GetBalance(int accountNumber)
+    {
+        // Get balance
+        using var connection = new SqlConnection(ModelManger.ConnectionString);
+        connection.Open();
+
+        using var command = connection.CreateCommand();
+        command.CommandText = $"select Balance from [Account] where AccountNumber = @accountNumber";
+        command.Parameters.AddWithValue("accountNumber", accountNumber);
+
+        command.ExecuteNonQuery();
+
+        // Return balance
+        return command.GetDataTable().Select().Select(x => x.Field<decimal>("Balance")).Single();
     }
 
     public int CountTransactions(int accountNumber)
