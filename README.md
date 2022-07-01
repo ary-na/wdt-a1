@@ -1,7 +1,35 @@
 # MCBA - Console
 
 ## Arian Najafi Yamchelo - s3910902
-Link to repository [GitHub](https://github.com/rmit-wdt-sp2-2022/s3910902-a1)
+
+### Design Patterns
+
+Short summary of the design patterns.
+Briefly explain the purpose and advantage the design patterns offer to the project.
+Succinctly discuss your implementation of the design patterns.
+Identify where in the code, i.e., which file(s) and code within those file(s) are
+implementing the design patterns.
+Include any other important points.
+
+- **Dependency Injection**:
+
+- **Factory**:
+
+### Class Library
+
+You must justify its use and provide an explanation in the readme file.
+
+### Async and Await
+
+the advantages to using them in your readme file, 
+e.g., how using these keywords change / benefit your design, method behaviour or program interaction / execution.
+
+
+### Links
+
+- [Trello](https://trello.com/b/zjsOL81O) board
+
+- [GitHub](https://github.com/rmit-wdt-sp2-2022/s3910902-a1) repository
 
 
 ## References
