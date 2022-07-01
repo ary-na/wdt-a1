@@ -4,26 +4,47 @@
 
 ### Design Patterns
 
-Short summary of the design patterns.
-Briefly explain the purpose and advantage the design patterns offer to the project.
-Succinctly discuss your implementation of the design patterns.
-Identify where in the code, i.e., which file(s) and code within those file(s) are
-implementing the design patterns.
-Include any other important points.
-
 - **Dependency Injection**:
+
+*Summary* - The Dependency injection design pattern will make a class independent of its dependencies, and this lets us change a class's dependencies without changing the class that uses that dependency. We can achieve this by decoupling the use of objects from their creation (JANSSEN, 2022).
+
+*Advantages* - The advantage of using the Dependency Injection design pattern is that the classes do not need to change if the dependency needs to change. Also, this makes it possible to replace dependencies with one another without changing the class that requires the dependency. The dependency injection design pattern also improves the re-usability of the code because it is not dependent on a particular dependency and can be implemented in different contexts (JANSSEN, 2022).
+
+*Implementation* - I'm using the Dependency Injection design pattern to separate my classes and object creation from the dependencies. I have implemented this design pattern twice in my code, first with the connection string and second as an intermediate layer for accessing data. I use the model manager class to inject the dependency, the database connection string, to the classes requiring a connection, letting me switch the connection string but still use the same classes with a different dependency or inject a new dependency without changing my classes.
+
+*File(s) Implementing the design pattern*
+
+```Managers/AccountManager.cs -> Line 17```
+
+```Managers/CustomerManager.cs -> Line 26```
+
+```Managers/LoginManager.cs -> Line 20```
+
+```Managers/TransactionManager.cs -> Line 17```
+
+```Program.cs -> Line 17 & 18```
 
 - **Factory**:
 
+*Summary* - The Factory design pattern allows the client code to have fewer responsibilities and not create objects using the constructor of a class. Instead, the factory creates the objects for the client class and encapsulates the logic of creating an object. The encapsulation will also allow multiple classes to use the factory to create objects (Mathews, 2022).
+
+*Advantages* - This design pattern reduces coupling and increases cohesion as multiple classes can reuse it to create objects while encapsulating the logic of creating the objects. Also, creating an object using a constructor is not ideal as there might be different dependencies and multiple constructors. The Factory will simplify the process of object creation (Mathews, 2022).
+
+*Implementation* - I'm using the Factory design pattern to create ITransaction objects that are transactions with different members and multiple constructors. Factory allows me to create the transactions without exposing the constructors to my client classes to maintain encapsulation. Also, it makes creating objects easier as my client class does not need to know how to create the ITransaction objects.
+
+*File(s) Implementing the design pattern*
+
+```Factories/TransactionFactory.cs```
+
+```Menus/MainMenu.cs -> Line 89```
+
 ### Class Library
 
-You must justify its use and provide an explanation in the readme file.
+Class libraries are essential because we can reuse code using the libraries in multiple projects. I have decided to use the utilities and DTOs for the class library because I know I will be reusing the utility extension methods. DTOs will most likely be useful for the next assignment as we are building on top of this project.
 
 ### Async and Await
 
-the advantages to using them in your readme file, 
-e.g., how using these keywords change / benefit your design, method behaviour or program interaction / execution.
-
+Asynchronous programming allowed me to have my database operations asynchronous as opposed to synchronous, giving me the advantage of having all the async operations run simultaneously without interrupting the program's flow while waiting to be completed using await. Async tasks are happening on multiple threads and do not interrupt the flow of the other methods while waiting to be completed. Especially it changed how the program behaves when it starts for the first time without any data in the database. Loading the data from the JSON file and inserting it into the database happens quicker. As a result, the app runs quicker and is more responsive to database operations.
 
 ### Links
 
@@ -98,6 +119,8 @@ Ister, 2022. Is this UML class diagram correct?. [online] Stack Overflow. Availa
 
 Jaiyim, A., 2022. Class Diagram แบบง่าย ๆ ที่ใคร ๆ ก็ทำได้ - GlurGeek.Com. [online] GlurGeek.Com. Available at: <https://www.glurgeek.com/education/class-diagram-%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B9%86%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%83%E0%B8%84%E0%B8%A3%E0%B9%86%E0%B8%81%E0%B9%87%E0%B8%97%E0%B8%B3%E0%B9%84/> [Accessed 16 June 2022].
 
+JANSSEN, T., 2022. Design Patterns Explained – Dependency Injection with Code Examples. [online] Stackify. Available at: <https://stackify.com/dependency-injection/> [Accessed 1 July 2022].
+
 JetBrains Rider Help. 2022. Code Inspection: Convert lambda expression to method group | JetBrains Rider. [online] Available at: <https://www.jetbrains.com/help/rider/ConvertClosureToMethodGroup.html> [Accessed 1 July 2022].
 
 Job79, 2022. GitHub - Job79/SimpleHashing: Library that makes hashing with PBKDF2 simple and easy.. [online] GitHub. Available at: <https://github.com/Job79/SimpleHashing> [Accessed 1 July 2022].
@@ -117,6 +140,8 @@ Kumar, V., 2022. Async and Await In C#. [online] C-sharpcorner.com. Available at
 Lindvall, K., 2022. Removing a character from my stringbuilder. [online] Stack Overflow. Available at: <https://stackoverflow.com/questions/5701163/removing-a-character-from-my-stringbuilder#5701216> [Accessed 1 July 2022].
 
 Lucidchart. 2022. Intelligent Diagramming | Lucidchart. [online] Available at: <https://www.lucidchart.com/pages/> [Accessed 11 June 2022].
+
+Mathews, S., 2022. 5 Ways To Implement the Factory Design Pattern in C#. [online] Medium. Available at: <https://betterprogramming.pub/5-ways-to-implement-factory-design-pattern-in-c-382c0992a3ff> [Accessed 1 July 2022].
 
 Pagolu, S., 2022. How to count the number of rows from sql table in c#?. [online] Stack Overflow. Available at: <https://stackoverflow.com/questions/20160928/how-to-count-the-number-of-rows-from-sql-table-in-c> [Accessed 1 July 2022].
 
@@ -182,6 +207,7 @@ Wagner, B., forensicmike, Naidile-P-N and pkulikov, 2022. C# Coding Conventions.
 
 Whitten, E., 2022. 5 Best Practices For Setting Up Effective Trello Boards. [online] Blog.trello.com. Available at: <https://blog.trello.com/trello-board-best-practices> [Accessed 11 June 2022].
 
+W3schools.com. 2022. SQL IS NOT NULL. [online] Available at: <https://www.w3schools.com/sql/sql_ref_is_not_null.asp> [Accessed 1 July 2022].
 
 
 
